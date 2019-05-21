@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>http://hiybm.cn/posts/hello/</loc>
+    <lastmod>2019-05-16T17:24:39+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://hiybm.cn/</loc>
+    <lastmod>2019-05-16T17:24:39+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://hiybm.cn/posts/</loc>
+    <lastmod>2019-05-16T17:24:39+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://hiybm.cn/about/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://hiybm.cn/categories/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://hiybm.cn/tags/</loc>
+    <priority>0</priority>
+  </url>
+  
+</urlset>
