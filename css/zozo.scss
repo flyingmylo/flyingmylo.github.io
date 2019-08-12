@@ -194,16 +194,16 @@ hr {
 
 .post {
   background-color: #ffffff;
-  margin-top: 50px;
+  margin-top: 20px;
 
   .post_title {
-    padding-bottom: 16px;
+    // padding-bottom: 16px;
 
     h2 {
       letter-spacing: 1px;
-      font-size: 1.4rem;
+      font-size: 1.2rem;
       line-height: 1;
-      font-weight: 600;
+      font-weight: 300;
       color: #1f1f1f;
       margin: 0 0 6px 0;
     }
@@ -212,7 +212,7 @@ hr {
       text-decoration: none;
       letter-spacing: 1px;
       color: #1f1f1f;
-      font-size: 1.4rem;
+      font-size: 1.2rem;
       line-height: 28px;
     }
 
