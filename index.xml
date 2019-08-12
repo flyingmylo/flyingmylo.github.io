@@ -21,16 +21,6 @@
     </item>
     
     <item>
-      <title></title>
-      <link>http://hiybm.cn/about/</link>
-      <pubDate>Mon, 12 Aug 2019 14:10:13 +0800</pubDate>
-      
-      <guid>http://hiybm.cn/about/</guid>
-      <description> A CHAMPAGNE SUPERNOVA IN THE SKY :D
- </description>
-    </item>
-    
-    <item>
       <title>回答</title>
       <link>http://hiybm.cn/posts/answer/</link>
       <pubDate>Mon, 12 Aug 2019 14:10:13 +0800</pubDate>
@@ -46,6 +36,16 @@
       
       <guid>http://hiybm.cn/posts/station/</guid>
       <description>一 这里的地铁很奇怪，不是在地下运行反而是地上，可能是叫「轨道交通」的原因吧。 男孩儿和女孩儿坐在了一起。女孩儿坐姿端正，双目向前，像是在看窗外的风景，风景也不过是些高楼大厦，可能女孩</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://hiybm.cn/about/</link>
+      <pubDate>Tue, 02 Apr 2019 14:10:13 +0800</pubDate>
+      
+      <guid>http://hiybm.cn/about/</guid>
+      <description> A CHAMPAGNE SUPERNOVA IN THE SKY :D
+ </description>
     </item>
     
   </channel>

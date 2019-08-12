@@ -32,11 +32,6 @@
   </url>
   
   <url>
-    <loc>http://hiybm.cn/about/</loc>
-    <lastmod>2019-08-12T14:10:13+08:00</lastmod>
-  </url>
-  
-  <url>
     <loc>http://hiybm.cn/posts/answer/</loc>
     <lastmod>2019-08-12T14:10:13+08:00</lastmod>
   </url>
@@ -50,6 +45,11 @@
   <url>
     <loc>http://hiybm.cn/posts/station/</loc>
     <lastmod>2019-05-12T17:51:27+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://hiybm.cn/about/</loc>
+    <lastmod>2019-04-02T14:10:13+08:00</lastmod>
   </url>
   
   <url>
