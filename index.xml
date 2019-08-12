@@ -6,7 +6,7 @@
     <description>Recent content on Mylo&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sun, 12 May 2019 17:53:23 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 12 Aug 2019 14:10:13 +0800</lastBuildDate>
     
 	<atom:link href="http://hiybm.cn/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,11 +14,19 @@
     <item>
       <title></title>
       <link>http://hiybm.cn/about/</link>
-      <pubDate>Sun, 12 May 2019 17:53:23 +0800</pubDate>
+      <pubDate>Mon, 12 Aug 2019 14:10:13 +0800</pubDate>
       
       <guid>http://hiybm.cn/about/</guid>
-      <description>ABOUT ME
- BE A CARTOON HEART</description>
+      <description>ABOUT ME 宇宙万物，皆有定律。</description>
+    </item>
+    
+    <item>
+      <title>回答</title>
+      <link>http://hiybm.cn/posts/answer/</link>
+      <pubDate>Mon, 12 Aug 2019 14:10:13 +0800</pubDate>
+      
+      <guid>http://hiybm.cn/posts/answer/</guid>
+      <description>《回答》 --北岛 卑鄙是卑鄙者的通行证， 高尚是高尚者的墓志铭， 看吧，在那镀金的天空中， 飘满了死者弯曲的倒影。 冰川纪过去了， 为什么到处是冰凌？ 好望角发现了， 为什么死海里千帆相竞？ 我来到</description>
     </item>
     
     <item>

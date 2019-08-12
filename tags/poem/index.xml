@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Posts on Mylo&#39;s blog</title>
-    <link>http://hiybm.cn/posts/</link>
-    <description>Recent content in Posts on Mylo&#39;s blog</description>
+    <title>poem on Mylo&#39;s blog</title>
+    <link>http://hiybm.cn/tags/poem/</link>
+    <description>Recent content in poem on Mylo&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <lastBuildDate>Mon, 12 Aug 2019 14:10:13 +0800</lastBuildDate>
     
-	<atom:link href="http://hiybm.cn/posts/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://hiybm.cn/tags/poem/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -18,15 +18,6 @@
       
       <guid>http://hiybm.cn/posts/answer/</guid>
       <description>《回答》 --北岛 卑鄙是卑鄙者的通行证， 高尚是高尚者的墓志铭， 看吧，在那镀金的天空中， 飘满了死者弯曲的倒影。 冰川纪过去了， 为什么到处是冰凌？ 好望角发现了， 为什么死海里千帆相竞？ 我来到</description>
-    </item>
-    
-    <item>
-      <title>车站</title>
-      <link>http://hiybm.cn/posts/station/</link>
-      <pubDate>Sun, 12 May 2019 17:51:27 +0800</pubDate>
-      
-      <guid>http://hiybm.cn/posts/station/</guid>
-      <description>一 这里的地铁很奇怪，不是在地下运行反而是地上，可能是叫「轨道交通」的原因吧。 男孩儿和女孩儿坐在了一起。女孩儿坐姿端正，双目向前，像是在看窗外的风景，风景也不过是些高楼大厦，可能女孩</description>
     </item>
     
   </channel>

@@ -4,25 +4,36 @@
   
   <url>
     <loc>http://hiybm.cn/about/</loc>
-    <lastmod>2019-05-12T17:53:23+08:00</lastmod>
+    <lastmod>2019-08-12T14:10:13+08:00</lastmod>
   </url>
   
   <url>
     <loc>http://hiybm.cn/</loc>
-    <lastmod>2019-05-12T17:53:23+08:00</lastmod>
+    <lastmod>2019-08-12T14:10:13+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>http://hiybm.cn/posts/</loc>
-    <lastmod>2019-05-12T17:51:27+08:00</lastmod>
+    <lastmod>2019-08-12T14:10:13+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>http://hiybm.cn/tags/</loc>
-    <lastmod>2019-05-12T17:51:27+08:00</lastmod>
+    <lastmod>2019-08-12T14:10:13+08:00</lastmod>
     <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://hiybm.cn/tags/poem/</loc>
+    <lastmod>2019-08-12T14:10:13+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://hiybm.cn/posts/answer/</loc>
+    <lastmod>2019-08-12T14:10:13+08:00</lastmod>
   </url>
   
   <url>
