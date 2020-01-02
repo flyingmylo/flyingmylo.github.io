@@ -4,20 +4,31 @@
   
   <url>
     <loc>https://tat2o.ink/</loc>
-    <lastmod>2019-10-10T17:13:48+08:00</lastmod>
+    <lastmod>2019-12-27T19:41:41+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://tat2o.ink/posts/</loc>
-    <lastmod>2019-10-10T17:13:48+08:00</lastmod>
+    <lastmod>2019-12-27T19:41:41+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://tat2o.ink/tags/</loc>
-    <lastmod>2019-10-10T17:13:48+08:00</lastmod>
+    <lastmod>2019-12-27T19:41:41+08:00</lastmod>
     <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://tat2o.ink/tags/tale/</loc>
+    <lastmod>2019-12-27T19:41:41+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://tat2o.ink/posts/common-people/</loc>
+    <lastmod>2019-12-27T19:41:41+08:00</lastmod>
   </url>
   
   <url>
@@ -34,12 +45,6 @@
   <url>
     <loc>https://tat2o.ink/posts/answer/</loc>
     <lastmod>2019-08-12T14:10:13+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://tat2o.ink/tags/tale/</loc>
-    <lastmod>2019-05-12T17:51:27+08:00</lastmod>
-    <priority>0</priority>
   </url>
   
   <url>
