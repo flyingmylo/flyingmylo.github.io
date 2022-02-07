@@ -2,39 +2,39 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://flyingmylo.com/</loc>
+    <lastmod>2019-12-27T19:41:41+08:00</lastmod>
+  </url><url>
     <loc>https://flyingmylo.com/posts/</loc>
     <lastmod>2019-12-27T19:41:41+08:00</lastmod>
   </url><url>
-    <loc>https://flyingmylo.com/posts/posts/</loc>
+    <loc>https://flyingmylo.com/tags/</loc>
     <lastmod>2019-12-27T19:41:41+08:00</lastmod>
   </url><url>
-    <loc>https://flyingmylo.com/posts/tags/</loc>
+    <loc>https://flyingmylo.com/posts/common-people/</loc>
     <lastmod>2019-12-27T19:41:41+08:00</lastmod>
   </url><url>
-    <loc>https://flyingmylo.com/posts/posts/common-people/</loc>
+    <loc>https://flyingmylo.com/tags/%E7%94%9F%E6%B4%BB%E7%9A%84%E7%8B%AC%E7%99%BD/</loc>
     <lastmod>2019-12-27T19:41:41+08:00</lastmod>
   </url><url>
-    <loc>https://flyingmylo.com/posts/tags/%E7%94%9F%E6%B4%BB%E7%9A%84%E7%8B%AC%E7%99%BD/</loc>
-    <lastmod>2019-12-27T19:41:41+08:00</lastmod>
-  </url><url>
-    <loc>https://flyingmylo.com/posts/posts/now-close-the-windows/</loc>
+    <loc>https://flyingmylo.com/posts/now-close-the-windows/</loc>
     <lastmod>2019-10-10T17:13:48+08:00</lastmod>
   </url><url>
-    <loc>https://flyingmylo.com/posts/tags/%E8%AF%97/</loc>
+    <loc>https://flyingmylo.com/tags/%E8%AF%97/</loc>
     <lastmod>2019-10-10T17:13:48+08:00</lastmod>
   </url><url>
-    <loc>https://flyingmylo.com/posts/posts/answer/</loc>
+    <loc>https://flyingmylo.com/posts/answer/</loc>
     <lastmod>2019-08-12T14:10:13+08:00</lastmod>
   </url><url>
-    <loc>https://flyingmylo.com/posts/tags/tale/</loc>
+    <loc>https://flyingmylo.com/tags/tale/</loc>
     <lastmod>2019-05-12T17:51:27+08:00</lastmod>
   </url><url>
-    <loc>https://flyingmylo.com/posts/posts/station/</loc>
+    <loc>https://flyingmylo.com/posts/station/</loc>
     <lastmod>2019-05-12T17:51:27+08:00</lastmod>
   </url><url>
-    <loc>https://flyingmylo.com/posts/about/</loc>
+    <loc>https://flyingmylo.com/about/</loc>
     <lastmod>2019-04-02T16:02:13+08:00</lastmod>
   </url><url>
-    <loc>https://flyingmylo.com/posts/categories/</loc>
+    <loc>https://flyingmylo.com/categories/</loc>
   </url>
 </urlset>
