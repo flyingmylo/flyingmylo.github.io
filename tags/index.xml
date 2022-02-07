@@ -2,35 +2,35 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on Mylo&#39;s blog</title>
-    <link>https://flyingmylo.com/tags/</link>
+    <link>https://flyingmylo.com/posts/tags/</link>
     <description>Recent content in Tags on Mylo&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Fri, 27 Dec 2019 19:41:41 +0800</lastBuildDate><atom:link href="https://flyingmylo.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 27 Dec 2019 19:41:41 +0800</lastBuildDate><atom:link href="https://flyingmylo.com/posts/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>生活的独白</title>
-      <link>https://flyingmylo.com/tags/%E7%94%9F%E6%B4%BB%E7%9A%84%E7%8B%AC%E7%99%BD/</link>
+      <link>https://flyingmylo.com/posts/tags/%E7%94%9F%E6%B4%BB%E7%9A%84%E7%8B%AC%E7%99%BD/</link>
       <pubDate>Fri, 27 Dec 2019 19:41:41 +0800</pubDate>
       
-      <guid>https://flyingmylo.com/tags/%E7%94%9F%E6%B4%BB%E7%9A%84%E7%8B%AC%E7%99%BD/</guid>
+      <guid>https://flyingmylo.com/posts/tags/%E7%94%9F%E6%B4%BB%E7%9A%84%E7%8B%AC%E7%99%BD/</guid>
       <description></description>
     </item>
     
     <item>
       <title>诗</title>
-      <link>https://flyingmylo.com/tags/%E8%AF%97/</link>
+      <link>https://flyingmylo.com/posts/tags/%E8%AF%97/</link>
       <pubDate>Thu, 10 Oct 2019 17:13:48 +0800</pubDate>
       
-      <guid>https://flyingmylo.com/tags/%E8%AF%97/</guid>
+      <guid>https://flyingmylo.com/posts/tags/%E8%AF%97/</guid>
       <description></description>
     </item>
     
     <item>
       <title>tale</title>
-      <link>https://flyingmylo.com/tags/tale/</link>
+      <link>https://flyingmylo.com/posts/tags/tale/</link>
       <pubDate>Sun, 12 May 2019 17:51:27 +0800</pubDate>
       
-      <guid>https://flyingmylo.com/tags/tale/</guid>
+      <guid>https://flyingmylo.com/posts/tags/tale/</guid>
       <description></description>
     </item>
     
