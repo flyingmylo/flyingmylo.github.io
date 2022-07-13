@@ -5,19 +5,23 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="robots" content="noodp" />
         <title>算法之 BFS 与 DFS - Mylo</title><meta name="Description" content="This is my cool site"><meta property="og:title" content="算法之 BFS 与 DFS" />
-<meta property="og:description" content="深度优先搜索 DFS 深度优先搜索（Depth-First-Search），是一种用来遍历或者搜索树或图这种数据结构的算法，以树为例，其搜索过程会从" />
+<meta property="og:description" content="深度优先搜索 DFS 深度优先搜索（Depth-First-Search），是一种用来遍历或者搜索树或图这种数据结构的算法，以树为例，其搜索过程会从根节点出发，尽可能深地遍历每个子节点，而且每个节点只能访问一次。
+深度优先搜索是一个不断回溯的过程，以二叉树的先序遍历为例：
+const preorderTraversal = function (root) { const ans = [] const dfs = (node, ans) =&gt; { if (node === null) return ans.push(node.val) dfs(node.left, ans) dfs(node.right, ans) } dfs(root, ans) return ans } const obj = { x: 1, a: 1, b: 2, c: 3, d: { e: 4, f: 5, }, } const isObject = (obj) =&gt; { return obj &amp;&amp; Object.prototype.toString.call(obj) === &#34;[object Object]&#34; } // 深度优先搜索获取对象的所有键 function dfs(obj, keys = []) { Object." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://example.org/posts/dfs-bfs/" /><meta property="article:section" content="posts" />
+<meta property="og:url" content="http://flyingmylo.com/posts/dfs-bfs/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2022-07-07T21:27:33+08:00" />
 <meta property="article:modified_time" content="2022-07-07T21:27:33+08:00" /><meta property="og:site_name" content="My cool site" />
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="算法之 BFS 与 DFS"/>
-<meta name="twitter:description" content="深度优先搜索 DFS 深度优先搜索（Depth-First-Search），是一种用来遍历或者搜索树或图这种数据结构的算法，以树为例，其搜索过程会从"/>
+<meta name="twitter:description" content="深度优先搜索 DFS 深度优先搜索（Depth-First-Search），是一种用来遍历或者搜索树或图这种数据结构的算法，以树为例，其搜索过程会从根节点出发，尽可能深地遍历每个子节点，而且每个节点只能访问一次。
+深度优先搜索是一个不断回溯的过程，以二叉树的先序遍历为例：
+const preorderTraversal = function (root) { const ans = [] const dfs = (node, ans) =&gt; { if (node === null) return ans.push(node.val) dfs(node.left, ans) dfs(node.right, ans) } dfs(root, ans) return ans } const obj = { x: 1, a: 1, b: 2, c: 3, d: { e: 4, f: 5, }, } const isObject = (obj) =&gt; { return obj &amp;&amp; Object.prototype.toString.call(obj) === &#34;[object Object]&#34; } // 深度优先搜索获取对象的所有键 function dfs(obj, keys = []) { Object."/>
 <meta name="application-name" content="Mylo&#39;s Blog">
 <meta name="apple-mobile-web-app-title" content="Mylo&#39;s Blog"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://example.org/posts/dfs-bfs/" /><link rel="prev" href="http://example.org/posts/prototype/" /><link rel="next" href="http://example.org/posts/interview/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://flyingmylo.com/posts/dfs-bfs/" /><link rel="prev" href="http://flyingmylo.com/posts/prototype/" /><link rel="next" href="http://flyingmylo.com/posts/interview/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
         <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
         <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
     {
@@ -27,9 +31,9 @@
         "inLanguage": "zh-CN",
         "mainEntityOfPage": {
             "@type": "WebPage",
-            "@id": "http:\/\/example.org\/posts\/dfs-bfs\/"
-        },"genre": "posts","keywords": "algorithm","wordcount":  331 ,
-        "url": "http:\/\/example.org\/posts\/dfs-bfs\/","datePublished": "2022-07-07T21:27:33+08:00","dateModified": "2022-07-07T21:27:33+08:00","publisher": {
+            "@id": "http:\/\/flyingmylo.com\/posts\/dfs-bfs\/"
+        },"genre": "posts","keywords": "algorithm","wordcount":  137 ,
+        "url": "http:\/\/flyingmylo.com\/posts\/dfs-bfs\/","datePublished": "2022-07-07T21:27:33+08:00","dateModified": "2022-07-07T21:27:33+08:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
                 "@type": "Person",
@@ -45,7 +49,7 @@
             <a href="/" title="Mylo">Mylo</a>
         </div>
         <div class="menu">
-            <div class="menu-inner"><a class="menu-item" href="/posts/"> 文章 </a><a class="menu-item" href="/tags/"> 标签 </a><a class="menu-item" href="/categories/"> 分类 </a><span class="menu-item delimiter"></span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> 文章 </a><a class="menu-item" href="/tags/"> 标签 </a><a class="menu-item" href="/categories/"> 分类 </a><span class="menu-item delimiter"></span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
                     <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
                 </a>
             </div>
@@ -61,21 +65,21 @@
                 <span></span><span></span><span></span>
             </div>
         </div>
-        <div class="menu" id="menu-mobile"><a class="menu-item" href="/posts/" title="">文章</a><a class="menu-item" href="/tags/" title="">标签</a><a class="menu-item" href="/categories/" title="">分类</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+        <div class="menu" id="menu-mobile"><a class="menu-item" href="/posts/" title="">文章</a><a class="menu-item" href="/tags/" title="">标签</a><a class="menu-item" href="/categories/" title="">分类</a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
                 <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
             </a></div>
     </div>
 </header><main class="main">
                 <div class="container"><div class="toc" id="toc-auto">
-            <h2 class="toc-title">Contents</h2>
+            <h2 class="toc-title">目录</h2>
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">算法之 BFS 与 DFS</h1><div class="post-meta">
             <div class="post-meta-line"></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-07-07">2022-07-07</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;331 words&nbsp;
-                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;One minute&nbsp;</div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-07-07">2022-07-07</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 137 字&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 1 分钟&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
                 <div class="details-summary toc-title">
-                    <span>Contents</span>
+                    <span>目录</span>
                     <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
                 </div>
                 <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
@@ -150,7 +154,7 @@
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
-                <span>Updated on 2022-07-07</span>
+                <span>更新于 2022-07-07</span>
             </div></div>
         <div class="post-info-line">
             <div class="post-info-md"></div>
@@ -163,7 +167,7 @@
     <div class="post-info-more">
         <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/algorithm/">algorithm</a></section>
         <section>
-            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
         </section>
     </div>
 
@@ -172,15 +176,15 @@
 </div>
 </article></div>
             </main><footer class="footer">
-        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.91.2">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.91.2">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
                 </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2019 - 2022</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">xxxx</a></span></div>
         </div>
     </footer></div>
 
-        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
                 <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
-            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
                 <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
             </a>
-        </div><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.1/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":50},"comment":{}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+        </div><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.1/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":50},"comment":{}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
 </html>

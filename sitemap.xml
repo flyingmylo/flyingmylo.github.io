@@ -2,14 +2,14 @@
     xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
     xmlns:xhtml="http://www.w3.org/1999/xhtml"
     ><url>
-            <loc>http://example.org/</loc><lastmod>2022-07-13T21:27:03&#43;08:00</lastmod></url><url>
-            <loc>http://example.org/posts/</loc><lastmod>2022-07-13T21:27:03&#43;08:00</lastmod></url><url>
-            <loc>http://example.org/posts/interview/</loc><lastmod>2022-07-13T21:27:03&#43;08:00</lastmod></url><url>
-            <loc>http://example.org/tags/algorithm/</loc><lastmod>2022-07-07T21:27:33&#43;08:00</lastmod></url><url>
-            <loc>http://example.org/tags/</loc><lastmod>2022-07-07T21:27:33&#43;08:00</lastmod></url><url>
-            <loc>http://example.org/posts/dfs-bfs/</loc><lastmod>2022-07-07T21:27:33&#43;08:00</lastmod></url><url>
-            <loc>http://example.org/posts/prototype/</loc><lastmod>2022-06-10T12:44:17&#43;08:00</lastmod></url><url>
-            <loc>http://example.org/tags/translation/</loc><lastmod>2022-05-18T23:40:32&#43;08:00</lastmod></url><url>
-            <loc>http://example.org/posts/inside-look-at-modern-web-browser-1/</loc><lastmod>2022-05-18T23:40:32&#43;08:00</lastmod></url><url>
-            <loc>http://example.org/about/</loc><lastmod>2019-04-02T16:02:13&#43;08:00</lastmod></url><url>
-            <loc>http://example.org/categories/</loc></url></urlset>
+            <loc>http://flyingmylo.com/</loc><lastmod>2022-07-13T21:27:03&#43;08:00</lastmod></url><url>
+            <loc>http://flyingmylo.com/posts/</loc><lastmod>2022-07-13T21:27:03&#43;08:00</lastmod></url><url>
+            <loc>http://flyingmylo.com/posts/interview/</loc><lastmod>2022-07-13T21:27:03&#43;08:00</lastmod></url><url>
+            <loc>http://flyingmylo.com/tags/algorithm/</loc><lastmod>2022-07-07T21:27:33&#43;08:00</lastmod></url><url>
+            <loc>http://flyingmylo.com/tags/</loc><lastmod>2022-07-07T21:27:33&#43;08:00</lastmod></url><url>
+            <loc>http://flyingmylo.com/posts/dfs-bfs/</loc><lastmod>2022-07-07T21:27:33&#43;08:00</lastmod></url><url>
+            <loc>http://flyingmylo.com/posts/prototype/</loc><lastmod>2022-06-10T12:44:17&#43;08:00</lastmod></url><url>
+            <loc>http://flyingmylo.com/tags/translation/</loc><lastmod>2022-05-18T23:40:32&#43;08:00</lastmod></url><url>
+            <loc>http://flyingmylo.com/posts/inside-look-at-modern-web-browser-1/</loc><lastmod>2022-05-18T23:40:32&#43;08:00</lastmod></url><url>
+            <loc>http://flyingmylo.com/about/</loc><lastmod>2019-04-02T16:02:13&#43;08:00</lastmod></url><url>
+            <loc>http://flyingmylo.com/categories/</loc></url></urlset>

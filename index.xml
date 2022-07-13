@@ -1,41 +1,50 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
         <title>Mylo</title>
-        <link>http://example.org/</link>
+        <link>http://flyingmylo.com/</link>
         <description>This is my cool site</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Wed, 13 Jul 2022 21:27:03 &#43;0800</lastBuildDate>
-            <atom:link href="http://example.org/index.xml" rel="self" type="application/rss+xml" />
+            <atom:link href="http://flyingmylo.com/index.xml" rel="self" type="application/rss+xml" />
         <item>
     <title>面经（2022春）</title>
-    <link>http://example.org/posts/interview/</link>
+    <link>http://flyingmylo.com/posts/interview/</link>
     <pubDate>Wed, 13 Jul 2022 21:27:03 &#43;0800</pubDate>
     <author>xxxx</author>
-    <guid>http://example.org/posts/interview/</guid>
-    <description><![CDATA[vue 相关 mixin 相关场景以及利弊，拥有多个属性时的执行顺序， v-model 原理，在下拉选择器组件中是怎么实现的 filter 怎么实现，使用场景 插槽的实现原理，如何传值 v-for 中 key]]></description>
+    <guid>http://flyingmylo.com/posts/interview/</guid>
+    <description><![CDATA[vue 相关  mixin 相关场景以及利弊，拥有多个属性时的执行顺序， v-model 原理，在下拉选择器组件中是怎么实现的 filter 怎么实现，使用场景 插槽的实现原理，如何传值 v-for 中 key 的作用，延伸到 diff 实现，不同位置的比较 vnode 概念 v-if 控制 dom 显隐时 watch 监听是的 deep: true 实现原理 nextTick 原理  css 相关  回流和重绘的概念，绝对定位是否会导致回流  js 相关  let/const/var 区别，用 const 声明对象时，是否可以改变对象的属性值，为什么 深度优先搜索和广度优先搜索 如何证明 js 对象里存在循环引用  工程化相关  介绍 webpack 常用的配置以及功能 webpack 多页面有多个入口时如何配置 source-map 分类，如何配置和调试 webpack 中怎么隔离 css 性能优化方案，代码/打包/资源加载方面 热更新原理  概念类问题  http/https 区别  发散性问题  职业规划  &hellip;.]]></description>
 </item>
 <item>
     <title>算法之 BFS 与 DFS</title>
-    <link>http://example.org/posts/dfs-bfs/</link>
+    <link>http://flyingmylo.com/posts/dfs-bfs/</link>
     <pubDate>Thu, 07 Jul 2022 21:27:33 &#43;0800</pubDate>
     <author>xxxx</author>
-    <guid>http://example.org/posts/dfs-bfs/</guid>
-    <description><![CDATA[深度优先搜索 DFS 深度优先搜索（Depth-First-Search），是一种用来遍历或者搜索树或图这种数据结构的算法，以树为例，其搜索过程会从]]></description>
+    <guid>http://flyingmylo.com/posts/dfs-bfs/</guid>
+    <description><![CDATA[深度优先搜索 DFS 深度优先搜索（Depth-First-Search），是一种用来遍历或者搜索树或图这种数据结构的算法，以树为例，其搜索过程会从根节点出发，尽可能深地遍历每个子节点，而且每个节点只能访问一次。
+深度优先搜索是一个不断回溯的过程，以二叉树的先序遍历为例：
+const preorderTraversal = function (root) { const ans = [] const dfs = (node, ans) =&gt; { if (node === null) return ans.push(node.val) dfs(node.left, ans) dfs(node.right, ans) } dfs(root, ans) return ans } const obj = { x: 1, a: 1, b: 2, c: 3, d: { e: 4, f: 5, }, } const isObject = (obj) =&gt; { return obj &amp;&amp; Object.prototype.toString.call(obj) === &#34;[object Object]&#34; } // 深度优先搜索获取对象的所有键 function dfs(obj, keys = []) { Object.]]></description>
 </item>
 <item>
     <title>原型</title>
-    <link>http://example.org/posts/prototype/</link>
+    <link>http://flyingmylo.com/posts/prototype/</link>
     <pubDate>Fri, 10 Jun 2022 12:44:17 &#43;0800</pubDate>
     <author>xxxx</author>
-    <guid>http://example.org/posts/prototype/</guid>
-    <description><![CDATA[function SuperType() { this.property = true; } SuperType.prototype.getSuperValue = function() { return this.property; } function SubType() { this.subproperty = false; } // 修改 SubType 的原型，重新指向 SuperType SubType.prototype = new SuperType(); SubType.prototype.getSubValue = function() { return this.subproperty; } let instance = new SubType(); console.log(instance.getSuperValue()) // true console.log(instance.getSubValue()) // false 原型链" 原型链]]></description>
+    <guid>http://flyingmylo.com/posts/prototype/</guid>
+    <description><![CDATA[function SuperType() { this.property = true; } SuperType.prototype.getSuperValue = function() { return this.property; } function SubType() { this.subproperty = false; } // 修改 SubType 的原型，重新指向 SuperType SubType.prototype = new SuperType(); SubType.prototype.getSubValue = function() { return this.subproperty; } let instance = new SubType(); console.log(instance.getSuperValue()) // true console.log(instance.getSubValue()) // false  原型链" 原型链]]></description>
 </item>
 <item>
     <title>「译」深入了解现代网络浏览器（1/4）</title>
-    <link>http://example.org/posts/inside-look-at-modern-web-browser-1/</link>
+    <link>http://flyingmylo.com/posts/inside-look-at-modern-web-browser-1/</link>
     <pubDate>Wed, 18 May 2022 23:40:32 &#43;0800</pubDate>
     <author>xxxx</author>
-    <guid>http://example.org/posts/inside-look-at-modern-web-browser-1/</guid>
-    <description><![CDATA[📌 本篇原文发表于 2018.09.05，正文中出现的有关于时间概念的语句，阅读时请注意切换语境。 👉🏻原文链接 中央处理器/图形处理器/内存/多进]]></description>
+    <guid>http://flyingmylo.com/posts/inside-look-at-modern-web-browser-1/</guid>
+    <description><![CDATA[📌 本篇原文发表于 2018.09.05，正文中出现的有关于时间概念的语句，阅读时请注意切换语境。 👉🏻原文链接
+ 中央处理器/图形处理器/内存/多进程架构 在这个包含 4 篇文章的博客系列中，我们将从高阶架构到具体的渲染细节来深入 Chrome 浏览器内部了解其是怎么运作的。如果你曾经好奇浏览器是怎么把代码转变成一个功能齐备的网站，或者你并不确定为什么一个具体的技术细节能够带来性能提升，那么这个系列正好是为你准备的。
+作为系列第一篇，我们将会了解一些核心的计算机术语和 Chrome 浏览器的多进程架构。如果你对 CPU/GPU 和 进程/线程已经很熟悉，可以直接跳到 浏览器架构 章节。
+计算机的核心 - CPU 和 GPU  为了理解浏览器所运行的环境，我们需要先了解计算机的一些部件以及它们是做什么的。
+ 中央处理器 CPU 首先是中央处理器（CPU, Central Processing Unit）。CPU 可以被看作是一台计算机的大脑，一个 CPU 内核可以想象成一位办公室工作人员，能够处理一个接一个被安排的多个任务，可以处理一切从数学甚至到艺术领域的难题，而且它知道如何去响应一个用户的指令。以前的大多数 CPU 都是单个芯片，一个内核就相当于是一个 CPU 被嵌入到一个芯片上。在现代的硬件条件下，出现了多核处理器，也赋予了手机、笔记本更强的计算能力。
+图 1：四个 CPU 内核就像彼此相邻的办公室职员一样处理多个任务" 图 1：四个 CPU 内核就像彼此相邻的办公室职员一样处理多个任务 
+图形处理器 GPU 图形处理器是计算机里的另一个部件。和 CPU 不同的是，GPU 更擅长在多核之间处理一些简单的任务。顾名思义，GPU 最初是被开发成处理图形任务的模块，这也是为什么在很多图形计算的背景下，会把“使用 GPU”或“支持 GPU”和快速渲染、流畅的交互体验相关联在一起。近些年来，有了 GPU 加速的计算能力，也使 GPU 独立承载越来越多的计算成为可能。
+图2：多个带着扳手🔧️的 GPU 内核，表明它们只能处理有限的任务" 图2：多个带着扳手🔧️的 GPU 内核，表明它们只能处理有限的任务]]></description>
 </item>
 </channel>
 </rss>

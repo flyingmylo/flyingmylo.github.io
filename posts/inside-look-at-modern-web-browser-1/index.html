@@ -5,19 +5,33 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="robots" content="noodp" />
         <title>「译」深入了解现代网络浏览器（1/4） - Mylo</title><meta name="Description" content="This is my cool site"><meta property="og:title" content="「译」深入了解现代网络浏览器（1/4）" />
-<meta property="og:description" content="📌 本篇原文发表于 2018.09.05，正文中出现的有关于时间概念的语句，阅读时请注意切换语境。 👉🏻原文链接 中央处理器/图形处理器/内存/多进" />
+<meta property="og:description" content="📌 本篇原文发表于 2018.09.05，正文中出现的有关于时间概念的语句，阅读时请注意切换语境。 👉🏻原文链接
+ 中央处理器/图形处理器/内存/多进程架构 在这个包含 4 篇文章的博客系列中，我们将从高阶架构到具体的渲染细节来深入 Chrome 浏览器内部了解其是怎么运作的。如果你曾经好奇浏览器是怎么把代码转变成一个功能齐备的网站，或者你并不确定为什么一个具体的技术细节能够带来性能提升，那么这个系列正好是为你准备的。
+作为系列第一篇，我们将会了解一些核心的计算机术语和 Chrome 浏览器的多进程架构。如果你对 CPU/GPU 和 进程/线程已经很熟悉，可以直接跳到 浏览器架构 章节。
+计算机的核心 - CPU 和 GPU  为了理解浏览器所运行的环境，我们需要先了解计算机的一些部件以及它们是做什么的。
+ 中央处理器 CPU 首先是中央处理器（CPU, Central Processing Unit）。CPU 可以被看作是一台计算机的大脑，一个 CPU 内核可以想象成一位办公室工作人员，能够处理一个接一个被安排的多个任务，可以处理一切从数学甚至到艺术领域的难题，而且它知道如何去响应一个用户的指令。以前的大多数 CPU 都是单个芯片，一个内核就相当于是一个 CPU 被嵌入到一个芯片上。在现代的硬件条件下，出现了多核处理器，也赋予了手机、笔记本更强的计算能力。
+图 1：四个 CPU 内核就像彼此相邻的办公室职员一样处理多个任务&#34; 图 1：四个 CPU 内核就像彼此相邻的办公室职员一样处理多个任务 
+图形处理器 GPU 图形处理器是计算机里的另一个部件。和 CPU 不同的是，GPU 更擅长在多核之间处理一些简单的任务。顾名思义，GPU 最初是被开发成处理图形任务的模块，这也是为什么在很多图形计算的背景下，会把“使用 GPU”或“支持 GPU”和快速渲染、流畅的交互体验相关联在一起。近些年来，有了 GPU 加速的计算能力，也使 GPU 独立承载越来越多的计算成为可能。
+图2：多个带着扳手🔧️的 GPU 内核，表明它们只能处理有限的任务&#34; 图2：多个带着扳手🔧️的 GPU 内核，表明它们只能处理有限的任务" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://example.org/posts/inside-look-at-modern-web-browser-1/" /><meta property="article:section" content="posts" />
+<meta property="og:url" content="http://flyingmylo.com/posts/inside-look-at-modern-web-browser-1/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2022-05-18T23:40:32+08:00" />
 <meta property="article:modified_time" content="2022-05-18T23:40:32+08:00" /><meta property="og:site_name" content="My cool site" />
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="「译」深入了解现代网络浏览器（1/4）"/>
-<meta name="twitter:description" content="📌 本篇原文发表于 2018.09.05，正文中出现的有关于时间概念的语句，阅读时请注意切换语境。 👉🏻原文链接 中央处理器/图形处理器/内存/多进"/>
+<meta name="twitter:description" content="📌 本篇原文发表于 2018.09.05，正文中出现的有关于时间概念的语句，阅读时请注意切换语境。 👉🏻原文链接
+ 中央处理器/图形处理器/内存/多进程架构 在这个包含 4 篇文章的博客系列中，我们将从高阶架构到具体的渲染细节来深入 Chrome 浏览器内部了解其是怎么运作的。如果你曾经好奇浏览器是怎么把代码转变成一个功能齐备的网站，或者你并不确定为什么一个具体的技术细节能够带来性能提升，那么这个系列正好是为你准备的。
+作为系列第一篇，我们将会了解一些核心的计算机术语和 Chrome 浏览器的多进程架构。如果你对 CPU/GPU 和 进程/线程已经很熟悉，可以直接跳到 浏览器架构 章节。
+计算机的核心 - CPU 和 GPU  为了理解浏览器所运行的环境，我们需要先了解计算机的一些部件以及它们是做什么的。
+ 中央处理器 CPU 首先是中央处理器（CPU, Central Processing Unit）。CPU 可以被看作是一台计算机的大脑，一个 CPU 内核可以想象成一位办公室工作人员，能够处理一个接一个被安排的多个任务，可以处理一切从数学甚至到艺术领域的难题，而且它知道如何去响应一个用户的指令。以前的大多数 CPU 都是单个芯片，一个内核就相当于是一个 CPU 被嵌入到一个芯片上。在现代的硬件条件下，出现了多核处理器，也赋予了手机、笔记本更强的计算能力。
+图 1：四个 CPU 内核就像彼此相邻的办公室职员一样处理多个任务&#34; 图 1：四个 CPU 内核就像彼此相邻的办公室职员一样处理多个任务 
+图形处理器 GPU 图形处理器是计算机里的另一个部件。和 CPU 不同的是，GPU 更擅长在多核之间处理一些简单的任务。顾名思义，GPU 最初是被开发成处理图形任务的模块，这也是为什么在很多图形计算的背景下，会把“使用 GPU”或“支持 GPU”和快速渲染、流畅的交互体验相关联在一起。近些年来，有了 GPU 加速的计算能力，也使 GPU 独立承载越来越多的计算成为可能。
+图2：多个带着扳手🔧️的 GPU 内核，表明它们只能处理有限的任务&#34; 图2：多个带着扳手🔧️的 GPU 内核，表明它们只能处理有限的任务"/>
 <meta name="application-name" content="Mylo&#39;s Blog">
 <meta name="apple-mobile-web-app-title" content="Mylo&#39;s Blog"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://example.org/posts/inside-look-at-modern-web-browser-1/" /><link rel="next" href="http://example.org/posts/prototype/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://flyingmylo.com/posts/inside-look-at-modern-web-browser-1/" /><link rel="next" href="http://flyingmylo.com/posts/prototype/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
         <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
         <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
     {
@@ -27,9 +41,9 @@
         "inLanguage": "zh-CN",
         "mainEntityOfPage": {
             "@type": "WebPage",
-            "@id": "http:\/\/example.org\/posts\/inside-look-at-modern-web-browser-1\/"
-        },"genre": "posts","keywords": "translation","wordcount":  3700 ,
-        "url": "http:\/\/example.org\/posts\/inside-look-at-modern-web-browser-1\/","datePublished": "2022-05-18T23:40:32+08:00","dateModified": "2022-05-18T23:40:32+08:00","publisher": {
+            "@id": "http:\/\/flyingmylo.com\/posts\/inside-look-at-modern-web-browser-1\/"
+        },"genre": "posts","keywords": "translation","wordcount":  264 ,
+        "url": "http:\/\/flyingmylo.com\/posts\/inside-look-at-modern-web-browser-1\/","datePublished": "2022-05-18T23:40:32+08:00","dateModified": "2022-05-18T23:40:32+08:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
                 "@type": "Person",
@@ -45,7 +59,7 @@
             <a href="/" title="Mylo">Mylo</a>
         </div>
         <div class="menu">
-            <div class="menu-inner"><a class="menu-item" href="/posts/"> 文章 </a><a class="menu-item" href="/tags/"> 标签 </a><a class="menu-item" href="/categories/"> 分类 </a><span class="menu-item delimiter"></span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> 文章 </a><a class="menu-item" href="/tags/"> 标签 </a><a class="menu-item" href="/categories/"> 分类 </a><span class="menu-item delimiter"></span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
                     <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
                 </a>
             </div>
@@ -61,21 +75,21 @@
                 <span></span><span></span><span></span>
             </div>
         </div>
-        <div class="menu" id="menu-mobile"><a class="menu-item" href="/posts/" title="">文章</a><a class="menu-item" href="/tags/" title="">标签</a><a class="menu-item" href="/categories/" title="">分类</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+        <div class="menu" id="menu-mobile"><a class="menu-item" href="/posts/" title="">文章</a><a class="menu-item" href="/tags/" title="">标签</a><a class="menu-item" href="/categories/" title="">分类</a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
                 <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
             </a></div>
     </div>
 </header><main class="main">
                 <div class="container"><div class="toc" id="toc-auto">
-            <h2 class="toc-title">Contents</h2>
+            <h2 class="toc-title">目录</h2>
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">「译」深入了解现代网络浏览器（1/4）</h1><div class="post-meta">
             <div class="post-meta-line"></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-05-18">2022-05-18</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;3700 words&nbsp;
-                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;8 minutes&nbsp;</div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-05-18">2022-05-18</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 264 字&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 2 分钟&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
                 <div class="details-summary toc-title">
-                    <span>Contents</span>
+                    <span>目录</span>
                     <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
                 </div>
                 <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
@@ -285,7 +299,7 @@
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
-                <span>Updated on 2022-05-18</span>
+                <span>更新于 2022-05-18</span>
             </div></div>
         <div class="post-info-line">
             <div class="post-info-md"></div>
@@ -298,7 +312,7 @@
     <div class="post-info-more">
         <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/translation/">translation</a></section>
         <section>
-            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
         </section>
     </div>
 
@@ -307,15 +321,15 @@
 </div>
 </article></div>
             </main><footer class="footer">
-        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.91.2">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+        <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.91.2">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
                 </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2019 - 2022</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">xxxx</a></span></div>
         </div>
     </footer></div>
 
-        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
                 <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
-            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
                 <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
             </a>
-        </div><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.1/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":50},"comment":{}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+        </div><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.1/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":50},"comment":{}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
 </html>
