@@ -1,0 +1,15 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>algorithm - Tag - Mylo</title>
+        <link>http://example.org/tags/algorithm/</link>
+        <description>algorithm - Tag - Mylo</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Thu, 07 Jul 2022 21:27:33 &#43;0800</lastBuildDate><atom:link href="http://example.org/tags/algorithm/" rel="self" type="application/rss+xml" /><item>
+    <title>算法之 BFS 与 DFS</title>
+    <link>http://example.org/posts/dfs-bfs/</link>
+    <pubDate>Thu, 07 Jul 2022 21:27:33 &#43;0800</pubDate>
+    <author>xxxx</author>
+    <guid>http://example.org/posts/dfs-bfs/</guid>
+    <description><![CDATA[深度优先搜索 DFS 深度优先搜索（Depth-First-Search），是一种用来遍历或者搜索树或图这种数据结构的算法，以树为例，其搜索过程会从]]></description>
+</item>
+</channel>
+</rss>
