@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="robots" content="noodp" />
         <title>面经（2022春） - Mylo</title><meta name="Description" content="This is my cool site"><meta property="og:title" content="面经（2022春）" />
-<meta property="og:description" content="vue 相关  mixin 相关场景以及利弊，拥有多个属性时的执行顺序， v-model 原理，在下拉选择器组件中是怎么实现的 filter 怎么实现，使用场景 插槽的实现原理，如何传值 v-for 中 key 的作用，延伸到 diff 实现，不同位置的比较 vnode 概念 v-if 控制 dom 显隐时 watch 监听是的 deep: true 实现原理 nextTick 原理  css 相关  回流和重绘的概念，绝对定位是否会导致回流  js 相关  let/const/var 区别，用 const 声明对象时，是否可以改变对象的属性值，为什么 深度优先搜索和广度优先搜索 如何证明 js 对象里存在循环引用  工程化相关  介绍 webpack 常用的配置以及功能 webpack 多页面有多个入口时如何配置 source-map 分类，如何配置和调试 webpack 中怎么隔离 css 性能优化方案，代码/打包/资源加载方面 热更新原理  概念类问题  http/https 区别  发散性问题  职业规划  &hellip;." />
+<meta property="og:description" content="vue 相关  mixin 相关场景以及利弊，拥有多个属性时的执行顺序， v-model 原理，在下拉选择器组件中是怎么实现的 filter 怎么实现，使用场景 插槽的实现原理，如何传值 v-for 中 key 的作用，延伸到 diff 实现，不同位置的比较 vnode 概念 v-if 控制 dom 显隐时 watch 监听是的 deep: true 实现原理 nextTick 原理 computed 和 watch 的区别 Vue.use 和 Vue.install Vue 中手动 extend data 中的属性是定义在 MVVM 中的哪个环节  css 相关  回流和重绘的概念，绝对定位是否会导致回流 flex: 1 的分别代表什么属性以及作用 伪元素和伪类的区别，分别有哪些 visibility: hidden 和 opacity 是否触发点击事件  js 相关  let/const/var 区别，用 const 声明对象时，是否可以改变对象的属性值，为什么 深度优先搜索和广度优先搜索 如何证明 js 对象里存在循环引用 类型判断的方法，typeof 对象的类属性 实例对象是否是 Function ，instanceof Function 结果 promise 执行顺序，事件循环 es5 模拟 class 的实现 localStorage 如何实现过期时间 手机号正则  工程化相关  介绍 webpack 常用的配置以及功能 webpack 多页面有多个入口时如何配置 source-map 分类，如何配置和调试 webpack 中怎么隔离 css 性能优化方案，代码/打包/资源加载方面 热更新原理  概念类问题  http/https 区别 介绍 options 请求的意义 MVVM/MVC 的区别，如何实现一个 MVVM 简述 XSS 和 CSRF 的概念，并列举几种安全防范策略  编程题  编写一个函数，大小写字母取反 编写一个函数，输入 int 型，返回整数逆序后的字符串 二维数组扁平化，返回一个去重且是升序的一维数组  场景题  数据多、加载慢的解决方式  缓存 懒加载   生产环境发布后，发现客户那边并没有更新到最新版，从哪些方面排查？  时间戳保持最新 强缓存/协商缓存 禁止缓存   axios 需要对所有接口进行增加请求头之类的字段时，怎么处理？ 一个按钮含有异步请求，如何防止多次点击重复提交？  防抖及其实现，引申节流，描述区别及使用场景 增加禁用属性，loading/disabled   a 页面跳转到 b 页面然后重定向到 c 页面，可能会在 b 页面做登录逻辑或者记录数据（相当于一个中转页）， 但是用户可能直接在地址栏里输入 c 页面，怎么防止这个情况？  路由守卫 导航拦截如何实现 同一个浏览器，不同标签之间数据传递的方法，简单列举    发散性问题  职业规划 怎么制定技术方案，从哪几个方面考虑  " />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://flyingmylo.com/posts/interview/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2022-07-13T21:27:03+08:00" />
@@ -13,11 +13,11 @@
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="面经（2022春）"/>
-<meta name="twitter:description" content="vue 相关  mixin 相关场景以及利弊，拥有多个属性时的执行顺序， v-model 原理，在下拉选择器组件中是怎么实现的 filter 怎么实现，使用场景 插槽的实现原理，如何传值 v-for 中 key 的作用，延伸到 diff 实现，不同位置的比较 vnode 概念 v-if 控制 dom 显隐时 watch 监听是的 deep: true 实现原理 nextTick 原理  css 相关  回流和重绘的概念，绝对定位是否会导致回流  js 相关  let/const/var 区别，用 const 声明对象时，是否可以改变对象的属性值，为什么 深度优先搜索和广度优先搜索 如何证明 js 对象里存在循环引用  工程化相关  介绍 webpack 常用的配置以及功能 webpack 多页面有多个入口时如何配置 source-map 分类，如何配置和调试 webpack 中怎么隔离 css 性能优化方案，代码/打包/资源加载方面 热更新原理  概念类问题  http/https 区别  发散性问题  职业规划  &hellip;."/>
+<meta name="twitter:description" content="vue 相关  mixin 相关场景以及利弊，拥有多个属性时的执行顺序， v-model 原理，在下拉选择器组件中是怎么实现的 filter 怎么实现，使用场景 插槽的实现原理，如何传值 v-for 中 key 的作用，延伸到 diff 实现，不同位置的比较 vnode 概念 v-if 控制 dom 显隐时 watch 监听是的 deep: true 实现原理 nextTick 原理 computed 和 watch 的区别 Vue.use 和 Vue.install Vue 中手动 extend data 中的属性是定义在 MVVM 中的哪个环节  css 相关  回流和重绘的概念，绝对定位是否会导致回流 flex: 1 的分别代表什么属性以及作用 伪元素和伪类的区别，分别有哪些 visibility: hidden 和 opacity 是否触发点击事件  js 相关  let/const/var 区别，用 const 声明对象时，是否可以改变对象的属性值，为什么 深度优先搜索和广度优先搜索 如何证明 js 对象里存在循环引用 类型判断的方法，typeof 对象的类属性 实例对象是否是 Function ，instanceof Function 结果 promise 执行顺序，事件循环 es5 模拟 class 的实现 localStorage 如何实现过期时间 手机号正则  工程化相关  介绍 webpack 常用的配置以及功能 webpack 多页面有多个入口时如何配置 source-map 分类，如何配置和调试 webpack 中怎么隔离 css 性能优化方案，代码/打包/资源加载方面 热更新原理  概念类问题  http/https 区别 介绍 options 请求的意义 MVVM/MVC 的区别，如何实现一个 MVVM 简述 XSS 和 CSRF 的概念，并列举几种安全防范策略  编程题  编写一个函数，大小写字母取反 编写一个函数，输入 int 型，返回整数逆序后的字符串 二维数组扁平化，返回一个去重且是升序的一维数组  场景题  数据多、加载慢的解决方式  缓存 懒加载   生产环境发布后，发现客户那边并没有更新到最新版，从哪些方面排查？  时间戳保持最新 强缓存/协商缓存 禁止缓存   axios 需要对所有接口进行增加请求头之类的字段时，怎么处理？ 一个按钮含有异步请求，如何防止多次点击重复提交？  防抖及其实现，引申节流，描述区别及使用场景 增加禁用属性，loading/disabled   a 页面跳转到 b 页面然后重定向到 c 页面，可能会在 b 页面做登录逻辑或者记录数据（相当于一个中转页）， 但是用户可能直接在地址栏里输入 c 页面，怎么防止这个情况？  路由守卫 导航拦截如何实现 同一个浏览器，不同标签之间数据传递的方法，简单列举    发散性问题  职业规划 怎么制定技术方案，从哪几个方面考虑  "/>
 <meta name="application-name" content="Mylo&#39;s Blog">
 <meta name="apple-mobile-web-app-title" content="Mylo&#39;s Blog"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://flyingmylo.com/posts/interview/" /><link rel="prev" href="http://flyingmylo.com/posts/dfs-bfs/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://flyingmylo.com/posts/interview/" /><link rel="prev" href="http://flyingmylo.com/posts/dfs-bfs/" /><link rel="next" href="http://flyingmylo.com/posts/git-command/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
         <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
         <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
     {
@@ -28,7 +28,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "http:\/\/flyingmylo.com\/posts\/interview\/"
-        },"genre": "posts","keywords": "","wordcount":  60 ,
+        },"genre": "posts","keywords": "notes","wordcount":  143 ,
         "url": "http:\/\/flyingmylo.com\/posts\/interview\/","datePublished": "2022-07-13T21:27:03+08:00","dateModified": "2022-07-13T21:27:03+08:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -71,7 +71,7 @@
             <div class="toc-content always-active" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">面经（2022春）</h1><div class="post-meta">
             <div class="post-meta-line"></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-07-13">2022-07-13</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 60 字&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-07-13">2022-07-13</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 143 字&nbsp;
                 <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 1 分钟&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
                 <div class="details-summary toc-title">
@@ -87,6 +87,8 @@
         <li><a href="#js-相关">js 相关</a></li>
         <li><a href="#工程化相关">工程化相关</a></li>
         <li><a href="#概念类问题">概念类问题</a></li>
+        <li><a href="#编程题">编程题</a></li>
+        <li><a href="#场景题">场景题</a></li>
         <li><a href="#发散性问题">发散性问题</a></li>
       </ul>
     </li>
@@ -103,16 +105,29 @@
 <li><code>v-if</code> 控制 <code>dom</code> 显隐时</li>
 <li><code>watch</code> 监听是的 <code>deep: true</code> 实现原理</li>
 <li><code>nextTick</code> 原理</li>
+<li><code>computed</code> 和 <code>watch</code> 的区别</li>
+<li><code>Vue.use</code> 和 <code>Vue.install</code></li>
+<li><code>Vue</code> 中手动 <code>extend</code></li>
+<li><code>data</code> 中的属性是定义在 <code>MVVM</code> 中的哪个环节</li>
 </ul>
 <h3 id="css-相关">css 相关</h3>
 <ul>
 <li>回流和重绘的概念，绝对定位是否会导致回流</li>
+<li><code>flex: 1</code> 的分别代表什么属性以及作用</li>
+<li>伪元素和伪类的区别，分别有哪些</li>
+<li><code>visibility: hidden</code> 和 <code>opacity</code> 是否触发点击事件</li>
 </ul>
 <h3 id="js-相关">js 相关</h3>
 <ul>
 <li><code>let/const/var</code> 区别，用 <code>const</code> 声明对象时，是否可以改变对象的属性值，为什么</li>
 <li>深度优先搜索和广度优先搜索</li>
 <li>如何证明 <code>js</code> 对象里存在循环引用</li>
+<li>类型判断的方法，<code>typeof</code> 对象的类属性</li>
+<li>实例对象是否是 <code>Function</code> ，<code>instanceof Function</code> 结果</li>
+<li><code>promise</code> 执行顺序，事件循环</li>
+<li><code>es5</code> 模拟 <code>class</code> 的实现</li>
+<li><code>localStorage</code> 如何实现过期时间</li>
+<li>手机号正则</li>
 </ul>
 <h3 id="工程化相关">工程化相关</h3>
 <ul>
@@ -125,13 +140,53 @@
 </ul>
 <h3 id="概念类问题">概念类问题</h3>
 <ul>
-<li>http/https 区别</li>
+<li><code>http/https</code> 区别</li>
+<li>介绍 <code>options</code> 请求的意义</li>
+<li><code>MVVM/MVC</code> 的区别，如何实现一个 <code>MVVM</code></li>
+<li>简述 <code>XSS</code> 和 <code>CSRF</code> 的概念，并列举几种安全防范策略</li>
+</ul>
+<h3 id="编程题">编程题</h3>
+<ul>
+<li>编写一个函数，大小写字母取反</li>
+<li>编写一个函数，输入 int 型，返回整数逆序后的字符串</li>
+<li>二维数组扁平化，返回一个去重且是升序的一维数组</li>
+</ul>
+<h3 id="场景题">场景题</h3>
+<ul>
+<li>数据多、加载慢的解决方式
+<ul>
+<li>缓存</li>
+<li>懒加载</li>
+</ul>
+</li>
+<li>生产环境发布后，发现客户那边并没有更新到最新版，从哪些方面排查？
+<ul>
+<li>时间戳保持最新</li>
+<li>强缓存/协商缓存</li>
+<li>禁止缓存</li>
+</ul>
+</li>
+<li><code>axios</code> 需要对所有接口进行增加请求头之类的字段时，怎么处理？</li>
+<li>一个按钮含有异步请求，如何防止多次点击重复提交？
+<ul>
+<li>防抖及其实现，引申节流，描述区别及使用场景</li>
+<li>增加禁用属性，loading/disabled</li>
+</ul>
+</li>
+<li>a 页面跳转到 b 页面然后重定向到 c 页面，可能会在 b 页面做登录逻辑或者记录数据（相当于一个中转页），
+但是用户可能直接在地址栏里输入 c 页面，怎么防止这个情况？
+<ul>
+<li>路由守卫</li>
+<li>导航拦截如何实现</li>
+<li>同一个浏览器，不同标签之间数据传递的方法，简单列举</li>
+</ul>
+</li>
 </ul>
 <h3 id="发散性问题">发散性问题</h3>
 <ul>
 <li>职业规划</li>
+<li>怎么制定技术方案，从哪几个方面考虑</li>
 </ul>
-<p>&hellip;.待更新</p>
 </div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
@@ -147,13 +202,14 @@
     </div>
 
     <div class="post-info-more">
-        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/">Tags</a></section>
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/notes/">notes</a></section>
         <section>
             <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
         </section>
     </div>
 
-    <div class="post-nav"><a href="/posts/dfs-bfs/" class="prev" rel="prev" title="算法之 BFS 与 DFS"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>算法之 BFS 与 DFS</a></div>
+    <div class="post-nav"><a href="/posts/dfs-bfs/" class="prev" rel="prev" title="算法之 BFS 与 DFS"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>算法之 BFS 与 DFS</a>
+            <a href="/posts/git-command/" class="next" rel="next" title="Git 常用命令">Git 常用命令<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
 </div>
 </article></div>
             </main><footer class="footer">
