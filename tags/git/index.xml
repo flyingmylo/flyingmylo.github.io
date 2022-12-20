@@ -9,14 +9,16 @@
     <pubDate>Tue, 20 Dec 2022 17:03:14 &#43;0800</pubDate>
     <author>xxxx</author>
     <guid>http://flyingmylo.com/posts/git-slim/</guid>
-    <description><![CDATA[git 版本库提交过多，导致项目根目录下的 .git 文件夹体积巨大，原因可能不只是单纯的提交历史过多，根本原因是历史提交中包含有对大文件的引用，即使现在的项目中已经不存在这些文件了，但其引用关联依旧会被 git 保留下来。
-找到项目根目录下的 .idx 文件：.git/objects/pack/pack-************.idx
-踩坑方案 git filter-branch 识别出最大的三个文件 git verify-pack -v .git/objects/pack/pack-*********.idx | sort -k 3 -n | tail -3
-运行结果如下👇
-81f0aa7f9298ae04dbb3c48d8e371295dd81c513 blob 5680214 1376617 73325123 77e75e8630d3ae2338ee11b04f3b1ce5f1d80c2f blob 5698996 1376836 115744091 3e9a2ee73bea2c4bdfe7ef98c9d2f78353b8eedb blob 5698998 1376837 61415784 查询大文件 执行：
-git rev-list --objects --all | grep -f &lt;(git verify-pack -v .git/objects/pack/******.idx| sort -k 3 -n | cut -f 1 -d &quot; &quot; | tail -10)
-路径及文件名结果如下👇
-"]]></description>
+    <description><![CDATA[Git 版本仓库提交过多，会导致项目根目录下的 .git 文件夹体积巨大，原因可能不只是单纯的提交历史过多，而是历史提交中包含有对大文件的引用，即使现在的项目中已经不存在这些文件了，但其引用关联依旧会被 git 保留下来。
+踩坑方案一 git filter-branch 命令可以改写历史中大量的提交，但是它有很多陷阱，而且官方文档中已经不推荐使用它来重写历史了，当然，这个坑是我踩过之后才知道的。
+识别查询大文件 找到项目根目录下的 .idx 文件，路径：
+ .git/objects/pack/pack-************.idx
+ 执行：
+ git rev-list --objects --all | grep -f &lt;(git verify-pack -v .git/objects/pack/******.idx| sort -k 3 -n | cut -f 1 -d &quot; &quot; | tail -10)
+ 运行结果大致如下：
+c0b33abdf3af4f0a4ae82d6243954eeb344432d9 src/components/Emoji/emoji.png a08b3b0f766d26729cbaf0b7e86212b0ca4a5569 dist/js/2a10361c.async.js 1d26f0da81c885c676badb026367a47183013fb5 dist/js/84ad94bf.async.js eb07071cdea7e019953a3a6778a4bb6e728ea13d dist/js/4922a65f.async.js 7ddf057a0e26f300137c84cf03dbe088a69da488 dist/js/62f9d99c.async.js 删除文件 将该文件从历史记录的所有 tree 中移除，执行：
+ git filter-branch --index-filter 'git rm --cached --ignore-unmatch src/components/Emoji/emoji.png'
+ 注：需要依次执行该命令去删除这些大文件，可能会有很多 jpg/js.]]></description>
 </item>
 </channel>
 </rss>

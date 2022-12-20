@@ -5,14 +5,16 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="robots" content="noodp" />
         <title>git 文件夹瘦身 - Mylo</title><meta name="Description" content="This is my cool site"><meta property="og:title" content="git 文件夹瘦身" />
-<meta property="og:description" content="git 版本库提交过多，导致项目根目录下的 .git 文件夹体积巨大，原因可能不只是单纯的提交历史过多，根本原因是历史提交中包含有对大文件的引用，即使现在的项目中已经不存在这些文件了，但其引用关联依旧会被 git 保留下来。
-找到项目根目录下的 .idx 文件：.git/objects/pack/pack-************.idx
-踩坑方案 git filter-branch 识别出最大的三个文件 git verify-pack -v .git/objects/pack/pack-*********.idx | sort -k 3 -n | tail -3
-运行结果如下👇
-81f0aa7f9298ae04dbb3c48d8e371295dd81c513 blob 5680214 1376617 73325123 77e75e8630d3ae2338ee11b04f3b1ce5f1d80c2f blob 5698996 1376836 115744091 3e9a2ee73bea2c4bdfe7ef98c9d2f78353b8eedb blob 5698998 1376837 61415784 查询大文件 执行：
-git rev-list --objects --all | grep -f &lt;(git verify-pack -v .git/objects/pack/******.idx| sort -k 3 -n | cut -f 1 -d &quot; &quot; | tail -10)
-路径及文件名结果如下👇
-&#34;" />
+<meta property="og:description" content="Git 版本仓库提交过多，会导致项目根目录下的 .git 文件夹体积巨大，原因可能不只是单纯的提交历史过多，而是历史提交中包含有对大文件的引用，即使现在的项目中已经不存在这些文件了，但其引用关联依旧会被 git 保留下来。
+踩坑方案一 git filter-branch 命令可以改写历史中大量的提交，但是它有很多陷阱，而且官方文档中已经不推荐使用它来重写历史了，当然，这个坑是我踩过之后才知道的。
+识别查询大文件 找到项目根目录下的 .idx 文件，路径：
+ .git/objects/pack/pack-************.idx
+ 执行：
+ git rev-list --objects --all | grep -f &lt;(git verify-pack -v .git/objects/pack/******.idx| sort -k 3 -n | cut -f 1 -d &quot; &quot; | tail -10)
+ 运行结果大致如下：
+c0b33abdf3af4f0a4ae82d6243954eeb344432d9 src/components/Emoji/emoji.png a08b3b0f766d26729cbaf0b7e86212b0ca4a5569 dist/js/2a10361c.async.js 1d26f0da81c885c676badb026367a47183013fb5 dist/js/84ad94bf.async.js eb07071cdea7e019953a3a6778a4bb6e728ea13d dist/js/4922a65f.async.js 7ddf057a0e26f300137c84cf03dbe088a69da488 dist/js/62f9d99c.async.js 删除文件 将该文件从历史记录的所有 tree 中移除，执行：
+ git filter-branch --index-filter &#39;git rm --cached --ignore-unmatch src/components/Emoji/emoji.png&#39;
+ 注：需要依次执行该命令去删除这些大文件，可能会有很多 jpg/js." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://flyingmylo.com/posts/git-slim/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2022-12-20T17:03:14+08:00" />
@@ -20,14 +22,16 @@ git rev-list --objects --all | grep -f &lt;(git verify-pack -v .git/objects/pack
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="git 文件夹瘦身"/>
-<meta name="twitter:description" content="git 版本库提交过多，导致项目根目录下的 .git 文件夹体积巨大，原因可能不只是单纯的提交历史过多，根本原因是历史提交中包含有对大文件的引用，即使现在的项目中已经不存在这些文件了，但其引用关联依旧会被 git 保留下来。
-找到项目根目录下的 .idx 文件：.git/objects/pack/pack-************.idx
-踩坑方案 git filter-branch 识别出最大的三个文件 git verify-pack -v .git/objects/pack/pack-*********.idx | sort -k 3 -n | tail -3
-运行结果如下👇
-81f0aa7f9298ae04dbb3c48d8e371295dd81c513 blob 5680214 1376617 73325123 77e75e8630d3ae2338ee11b04f3b1ce5f1d80c2f blob 5698996 1376836 115744091 3e9a2ee73bea2c4bdfe7ef98c9d2f78353b8eedb blob 5698998 1376837 61415784 查询大文件 执行：
-git rev-list --objects --all | grep -f &lt;(git verify-pack -v .git/objects/pack/******.idx| sort -k 3 -n | cut -f 1 -d &quot; &quot; | tail -10)
-路径及文件名结果如下👇
-&#34;"/>
+<meta name="twitter:description" content="Git 版本仓库提交过多，会导致项目根目录下的 .git 文件夹体积巨大，原因可能不只是单纯的提交历史过多，而是历史提交中包含有对大文件的引用，即使现在的项目中已经不存在这些文件了，但其引用关联依旧会被 git 保留下来。
+踩坑方案一 git filter-branch 命令可以改写历史中大量的提交，但是它有很多陷阱，而且官方文档中已经不推荐使用它来重写历史了，当然，这个坑是我踩过之后才知道的。
+识别查询大文件 找到项目根目录下的 .idx 文件，路径：
+ .git/objects/pack/pack-************.idx
+ 执行：
+ git rev-list --objects --all | grep -f &lt;(git verify-pack -v .git/objects/pack/******.idx| sort -k 3 -n | cut -f 1 -d &quot; &quot; | tail -10)
+ 运行结果大致如下：
+c0b33abdf3af4f0a4ae82d6243954eeb344432d9 src/components/Emoji/emoji.png a08b3b0f766d26729cbaf0b7e86212b0ca4a5569 dist/js/2a10361c.async.js 1d26f0da81c885c676badb026367a47183013fb5 dist/js/84ad94bf.async.js eb07071cdea7e019953a3a6778a4bb6e728ea13d dist/js/4922a65f.async.js 7ddf057a0e26f300137c84cf03dbe088a69da488 dist/js/62f9d99c.async.js 删除文件 将该文件从历史记录的所有 tree 中移除，执行：
+ git filter-branch --index-filter &#39;git rm --cached --ignore-unmatch src/components/Emoji/emoji.png&#39;
+ 注：需要依次执行该命令去删除这些大文件，可能会有很多 jpg/js."/>
 <meta name="application-name" content="Mylo&#39;s Blog">
 <meta name="apple-mobile-web-app-title" content="Mylo&#39;s Blog"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -42,7 +46,7 @@ git rev-list --objects --all | grep -f &lt;(git verify-pack -v .git/objects/pack
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "http:\/\/flyingmylo.com\/posts\/git-slim\/"
-        },"genre": "posts","keywords": "Git","wordcount":  173 ,
+        },"genre": "posts","keywords": "Git","wordcount":  191 ,
         "url": "http:\/\/flyingmylo.com\/posts\/git-slim\/","datePublished": "2022-12-20T17:03:14+08:00","dateModified": "2022-12-20T17:03:14+08:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -85,7 +89,7 @@ git rev-list --objects --all | grep -f &lt;(git verify-pack -v .git/objects/pack
             <div class="toc-content always-active" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">git 文件夹瘦身</h1><div class="post-meta">
             <div class="post-meta-line"></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-12-20">2022-12-20</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 173 字&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-12-20">2022-12-20</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 191 字&nbsp;
                 <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 1 分钟&nbsp;</div>
         </div><div class="details toc" id="toc-static"  data-kept="">
                 <div class="details-summary toc-title">
@@ -94,58 +98,53 @@ git rev-list --objects --all | grep -f &lt;(git verify-pack -v .git/objects/pack
                 </div>
                 <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
   <ul>
-    <li><a href="#踩坑方案-git-filter-branch">踩坑方案 git filter-branch</a>
+    <li><a href="#踩坑方案一">踩坑方案一</a>
       <ul>
-        <li><a href="#识别出最大的三个文件">识别出最大的三个文件</a></li>
-        <li><a href="#查询大文件">查询大文件</a></li>
-        <li><a href="#将该文件从历史记录的所有-tree-中移除">将该文件从历史记录的所有 tree 中移除</a></li>
+        <li><a href="#识别查询大文件">识别查询大文件</a></li>
+        <li><a href="#删除文件">删除文件</a></li>
         <li><a href="#推送到远程">推送到远程</a></li>
       </ul>
     </li>
-    <li><a href="#终极方案2-git-filter-pro">终极方案2 git-filter-pro</a>
+    <li><a href="#终极方案二">终极方案二</a>
       <ul>
-        <li><a href="#报错">报错</a></li>
-        <li><a href="#解决方案">解决方案</a></li>
+        <li><a href="#安装">安装</a></li>
         <li><a href="#使用">使用</a></li>
       </ul>
     </li>
   </ul>
 </nav></div>
-            </div><div class="content" id="content"><p><code>git</code> 版本库提交过多，导致项目根目录下的 <code>.git</code> 文件夹体积巨大，原因可能不只是单纯的提交历史过多，根本原因是历史提交中包含有对大文件的引用，即使现在的项目中已经不存在这些文件了，但其引用关联依旧会被 <code>git</code> 保留下来。</p>
-<p>找到项目根目录下的 <code>.idx</code> 文件：<code>.git/objects/pack/pack-************.idx</code></p>
-<h2 id="踩坑方案-git-filter-branch">踩坑方案 git filter-branch</h2>
-<h3 id="识别出最大的三个文件">识别出最大的三个文件</h3>
-<p><code>git verify-pack -v .git/objects/pack/pack-*********.idx | sort -k 3 -n | tail -3</code></p>
-<p>运行结果如下👇</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text">81f0aa7f9298ae04dbb3c48d8e371295dd81c513 blob   5680214 1376617 73325123
-77e75e8630d3ae2338ee11b04f3b1ce5f1d80c2f blob   5698996 1376836 115744091
-3e9a2ee73bea2c4bdfe7ef98c9d2f78353b8eedb blob   5698998 1376837 61415784
-</code></pre></div><h3 id="查询大文件">查询大文件</h3>
+            </div><div class="content" id="content"><p>Git 版本仓库提交过多，会导致项目根目录下的 <code>.git</code> 文件夹体积巨大，原因可能不只是单纯的提交历史过多，而是历史提交中包含有对大文件的引用，即使现在的项目中已经不存在这些文件了，但其引用关联依旧会被 <code>git</code> 保留下来。</p>
+<h2 id="踩坑方案一">踩坑方案一</h2>
+<p><code>git filter-branch</code> 命令可以改写历史中大量的提交，但是它有很多陷阱，而且官方文档中已经不推荐使用它来重写历史了，当然，这个坑是我踩过之后才知道的。</p>
+<h3 id="识别查询大文件">识别查询大文件</h3>
+<p>找到项目根目录下的 <code>.idx</code> 文件，路径：</p>
+<blockquote>
+<p><code>.git/objects/pack/pack-************.idx</code></p>
+</blockquote>
 <p>执行：</p>
+<blockquote>
 <p><code>git rev-list --objects --all | grep -f &lt;(git verify-pack -v  .git/objects/pack/******.idx| sort -k 3 -n | cut -f 1 -d &quot; &quot; | tail -10)</code></p>
-<p>路径及文件名结果如下👇</p>
-<p><figure><a class="lightgallery" href="/images/git-slim-0.png/" title="/images/git-slim-0.png/" data-thumbnail="/images/git-slim-0.png/" data-sub-html="<h2> </h2>">
-        <img
-            class="lazyload"
-            src="/svg/loading.min.svg"
-            data-src="/images/git-slim-0.png/"
-            data-srcset="/images/git-slim-0.png/, /images/git-slim-0.png/ 1.5x, /images/git-slim-0.png/ 2x"
-            data-sizes="auto"
-            alt="/images/git-slim-0.png/" />
-    </a><figcaption class="image-caption"> </figcaption>
-    </figure></p>
-<h3 id="将该文件从历史记录的所有-tree-中移除">将该文件从历史记录的所有 tree 中移除</h3>
-<p><code>git filter-branch --index-filter 'git rm --cached --ignore-unmatch  dist/static/3.0.7/js/chunk.echarts.018ce8fe.js'</code></p>
-<p>注：需要依次执行该命令去删除这些大文件，可能会有很多 <code>jpg/js.map/gif</code> 等类型的文件，上图是清理过后的截图。</p>
+</blockquote>
+<p>运行结果大致如下：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text">c0b33abdf3af4f0a4ae82d6243954eeb344432d9 src/components/Emoji/emoji.png
+a08b3b0f766d26729cbaf0b7e86212b0ca4a5569 dist/js/2a10361c.async.js
+1d26f0da81c885c676badb026367a47183013fb5 dist/js/84ad94bf.async.js
+eb07071cdea7e019953a3a6778a4bb6e728ea13d dist/js/4922a65f.async.js
+7ddf057a0e26f300137c84cf03dbe088a69da488 dist/js/62f9d99c.async.js
+</code></pre></div><h3 id="删除文件">删除文件</h3>
+<p>将该文件从历史记录的所有 tree 中移除，执行：</p>
+<blockquote>
+<p><code>git filter-branch --index-filter 'git rm --cached --ignore-unmatch  src/components/Emoji/emoji.png'</code></p>
+</blockquote>
+<p>注：需要依次执行该命令去删除这些大文件，可能会有很多 <code>jpg/js.map/gif</code> 等类型的文件。</p>
 <h3 id="推送到远程">推送到远程</h3>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text">// 依次执行
-rm -rf .git/refs/original/
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text">rm -rf .git/refs/original/
 git reflog expire --expire=now --all
 git fsck --full --unreachable 
 git repack -A -d
 git gc --aggressive --prune=now
 git push --force
-</code></pre></div><p>就在此时，推送完毕之后，回头检查了一下远程仓库，居然！没有！生效！本地确实是清理掉了一部分空间，从 <code>1.2G</code> 瘦身到 <code>600M</code> 左右，但是推送后并没有生效🙃，于是继续寻找其他方案，结果看到 <a href="https://stackoverflow.com/questions/2100907/how-to-remove-delete-a-large-file-from-commit-history-in-the-git-repository?answertab=modifieddesc&amp;newreg=adaec4ffc87445179ca5946bf95f0109#tab-top" target="_blank" rel="noopener noreffer">stackoverflow</a> 上有一个一摸一样的问题，按 <code>Date modified (newest first)</code> 排序之后，我人傻了👇
+</code></pre></div><p>依次执行完以上命令后，此时去检查远程仓库，结果令人诧异，居然&hellip;没有&hellip;生效&hellip;本地确实是清理掉了一部分空间，从 <code>1.2G</code> 瘦身到 <code>600M</code> 左右，但是推送后并没有作用，于是继续寻找其他方案，结果看到 <a href="https://stackoverflow.com/questions/2100907/how-to-remove-delete-a-large-file-from-commit-history-in-the-git-repository?answertab=modifieddesc&amp;newreg=adaec4ffc87445179ca5946bf95f0109#tab-top" target="_blank" rel="noopener noreffer">stackoverflow</a> 上有一个一摸一样的问题，按 <code>Date modified (newest first)</code> 排序之后，看到👇
 <figure><a class="lightgallery" href="/images/git-slim-1.png/" title="/images/git-slim-1.png/" data-thumbnail="/images/git-slim-1.png/" data-sub-html="<h2> </h2>">
         <img
             class="lazyload"
@@ -156,22 +155,36 @@ git push --force
             alt="/images/git-slim-1.png/" />
     </a><figcaption class="image-caption"> </figcaption>
     </figure>
-也就是说 2022 了，<code>git filter-branch</code> 已经不好使了，推送到远程之后没有任何作用。😐</p>
-<h2 id="终极方案2-git-filter-pro">终极方案2 git-filter-pro</h2>
-<p>安装：
-<code>brew install git-filter-repo</code></p>
-<h3 id="报错">报错</h3>
+也就是说 2022 了，<code>git filter-branch</code> 已经不好使了，推送到远程之后没有任何作用，方案一以失败告状。</p>
+<h2 id="终极方案二">终极方案二</h2>
+<p><code>git</code> 官方文档推荐了这个库： <a href="https://github.com/newren/git-filter-repo" target="_blank" rel="noopener noreffer">git-filter-pro</a> ，它是一个可以重写 git 历史的多功能 <code>Python</code> 脚本，即使现在在项目当中找不到那些历史文件，它依然可以找到它们并进行清理（看来这才是我想要的东西）。</p>
+<h3 id="安装">安装</h3>
+<blockquote>
+<p><code>brew install git-filter-repo</code></p>
+</blockquote>
+<p>❌ 报错</p>
+<blockquote>
 <p><code>No such file or directory @ rb_sysopen -xxxxx</code></p>
-<h3 id="解决方案">解决方案</h3>
-<p>原因是使用国内镜像但是该镜像未完全同步的问题，临时去除镜像即可👇</p>
-<p><code>export HOMEBREW_BOTTLE_DOMAIN=''</code></p>
+</blockquote>
+<p>✅ 解决方案</p>
+<blockquote>
+<p>原因是使用国内镜像但是该镜像未完全同步的问题，临时去除镜像即可：
+<code>export HOMEBREW_BOTTLE_DOMAIN=''</code></p>
+</blockquote>
 <h3 id="使用">使用</h3>
-<p>清理全部的 <code>*.jpg</code> 文件，只需要如下命令👇</p>
-<p><code>git filter-repo --path-glob '*.jpg' --invert-paths</code></p>
-<p>之后，强制推送到远程👇</p>
-<p><code>git push --all --force</code></p>
-<p><code>git push --tags --force</code></p>
-<p>废了一些功夫，成效还算可观
+<p>这里可以搭配此命令来找到那些历史中的大文件，然后逐一清理。</p>
+<blockquote>
+<p><code>git rev-list --objects --all | grep -f &lt;(git verify-pack -v  .git/objects/pack/******.idx| sort -k 3 -n | cut -f 1 -d &quot; &quot; | tail -10)</code></p>
+</blockquote>
+<p>假设要清理全部的 <code>*.jpg</code> 文件，只需要如下命令，需要注意的是这样也会把项目中现有的所有 <code>.jpg</code> 文件清理掉。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text">git filter-repo --path-glob &#39;*.jpg&#39; --invert-paths
+
+之后，强制推送到远程👇
+
+git push --all --force
+
+git push --tags --force
+</code></pre></div><p>废了一些功夫，效果一级棒👍
 <figure><a class="lightgallery" href="/images/git-slim-2.png/" title="/images/git-slim-2.png/" data-thumbnail="/images/git-slim-2.png/" data-sub-html="<h2>清理前</h2>">
         <img
             class="lazyload"
@@ -192,7 +205,11 @@ git push --force
             alt="/images/git-slim-3.png/" />
     </a><figcaption class="image-caption">清理后</figcaption>
     </figure></p>
-<p>DONE! 很完美 😃</p>
+<p>参考链接：</p>
+<ul>
+<li><a href="https://git-scm.com/book/zh/v2/Git-%E5%B7%A5%E5%85%B7-%E9%87%8D%E5%86%99%E5%8E%86%E5%8F%B2" target="_blank" rel="noopener noreffer">Git-工具-重写历史</a></li>
+<li><a href="https://github.com/newren/git-filter-repo/blob/main/INSTALL.md" target="_blank" rel="noopener noreffer">git-filter-repo</a></li>
+</ul>
 </div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
