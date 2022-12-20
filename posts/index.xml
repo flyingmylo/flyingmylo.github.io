@@ -3,14 +3,42 @@
         <title>所有文章 - Mylo</title>
         <link>http://flyingmylo.com/posts/</link>
         <description>所有文章 | Mylo</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Mon, 18 Jul 2022 15:30:06 &#43;0800</lastBuildDate><atom:link href="http://flyingmylo.com/posts/" rel="self" type="application/rss+xml" /><item>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Tue, 20 Dec 2022 17:03:14 &#43;0800</lastBuildDate><atom:link href="http://flyingmylo.com/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>git 文件夹瘦身</title>
+    <link>http://flyingmylo.com/posts/git-slim/</link>
+    <pubDate>Tue, 20 Dec 2022 17:03:14 &#43;0800</pubDate>
+    <author>xxxx</author>
+    <guid>http://flyingmylo.com/posts/git-slim/</guid>
+    <description><![CDATA[git 版本库提交过多，导致项目根目录下的 .git 文件夹体积巨大，原因可能不只是单纯的提交历史过多，根本原因是历史提交中包含有对大文件的引用，即使现在的项目中已经不存在这些文件了，但其引用关联依旧会被 git 保留下来。
+找到项目根目录下的 .idx 文件：.git/objects/pack/pack-************.idx
+踩坑方案 git filter-branch 识别出最大的三个文件 git verify-pack -v .git/objects/pack/pack-*********.idx | sort -k 3 -n | tail -3
+运行结果如下👇
+81f0aa7f9298ae04dbb3c48d8e371295dd81c513 blob 5680214 1376617 73325123 77e75e8630d3ae2338ee11b04f3b1ce5f1d80c2f blob 5698996 1376836 115744091 3e9a2ee73bea2c4bdfe7ef98c9d2f78353b8eedb blob 5698998 1376837 61415784 查询大文件 执行：
+git rev-list --objects --all | grep -f &lt;(git verify-pack -v .git/objects/pack/******.idx| sort -k 3 -n | cut -f 1 -d &quot; &quot; | tail -10)
+路径及文件名结果如下👇
+"]]></description>
+</item>
+<item>
+    <title>2022 08 02 Hejimoshi</title>
+    <link>http://flyingmylo.com/posts/hejimoshi/</link>
+    <pubDate>Tue, 02 Aug 2022 08:14:31 &#43;0800</pubDate>
+    <author>xxxx</author>
+    <guid>http://flyingmylo.com/posts/hejimoshi/</guid>
+    <description><![CDATA[]]></description>
+</item>
+<item>
     <title>Git 常用命令</title>
     <link>http://flyingmylo.com/posts/git-command/</link>
     <pubDate>Mon, 18 Jul 2022 15:30:06 &#43;0800</pubDate>
     <author>xxxx</author>
     <guid>http://flyingmylo.com/posts/git-command/</guid>
-    <description><![CDATA[分支操作
-git branch -d branch git branch -D branch 强制删除 git push origin --delete branch 删除远程分支 简写：git push origin :branch ]]></description>
+    <description><![CDATA[分支操作 新建本地分支并切换到新分支
+git checkout -b feat/dev 本地分支推送到远程
+git push origin feat/dev:feat/dev 设置跟踪
+git branch --set-upstream-to=origin/dev dev 删除本地分支
+git branch -d dev 如果一个分支还没有被推送或合并，强制删除使用 -D
+git branch -D dev 删除远程分支
+git push origin --delete &lt;branch&gt; 或 git push origin :&lt;branch&gt; ]]></description>
 </item>
 <item>
     <title>面经（2022春）</title>
@@ -18,7 +46,7 @@ git branch -d branch git branch -D branch 强制删除 git push origin --delete 
     <pubDate>Wed, 13 Jul 2022 21:27:03 &#43;0800</pubDate>
     <author>xxxx</author>
     <guid>http://flyingmylo.com/posts/interview/</guid>
-    <description><![CDATA[vue 相关  mixin 相关场景以及利弊，拥有多个属性时的执行顺序， v-model 原理，在下拉选择器组件中是怎么实现的 filter 怎么实现，使用场景 插槽的实现原理，如何传值 v-for 中 key 的作用，延伸到 diff 实现，不同位置的比较 vnode 概念 v-if 控制 dom 显隐时， vdom 是如何处理的 watch 监听是的 deep: true 实现原理 nextTick 原理 computed 和 watch 的区别 Vue.use 和 Vue.install Vue 中手动 extend data 中的属性是定义在 MVVM 中的哪个环节  css 相关  回流和重绘的概念，绝对定位是否会导致回流 flex: 1 的分别代表什么属性以及作用 伪元素和伪类的区别，分别有哪些 visibility: hidden 和 opacity 是否触发点击事件  js 相关  let/const/var 区别，用 const 声明对象时，是否可以改变对象的属性值，为什么 深度优先搜索和广度优先搜索 如何证明 js 对象里存在循环引用 类型判断的方法，typeof 对象的类属性 实例对象是否是 Function ，instanceof Function 结果 promise 执行顺序，事件循环 es5 模拟 class 的实现 localStorage 如何实现过期时间 手机号正则  工程化相关  介绍 webpack 常用的配置以及功能 webpack 多页面有多个入口时如何配置 source-map 分类，如何配置和调试 webpack 中怎么隔离 css 性能优化方案，代码/打包/资源加载方面 热更新原理  概念类问题  http/https 区别 介绍 options 请求的意义 MVVM/MVC 的区别，如何实现一个 MVVM 简述 XSS 和 CSRF 的概念，并列举几种安全防范策略  编程题  编写一个函数，大小写字母取反 编写一个函数，输入 int 型，返回整数逆序后的字符串 二维数组扁平化，返回一个去重且是升序的一维数组  场景题  数据多、加载慢的解决方式  缓存 懒加载   生产环境发布后，发现客户那边并没有更新到最新版，从哪些方面排查？  时间戳保持最新 强缓存/协商缓存 禁止缓存   axios 需要对所有接口进行增加请求头之类的字段时，怎么处理？ 一个按钮含有异步请求，如何防止多次点击重复提交？  防抖及其实现，引申节流，描述区别及使用场景 增加禁用属性，loading/disabled   a 页面跳转到 b 页面然后重定向到 c 页面，可能会在 b 页面做登录逻辑或者记录数据（相当于一个中转页）， 但是用户可能直接在地址栏里输入 c 页面，怎么防止这个情况？  路由守卫 导航拦截如何实现 同一个浏览器，不同标签之间数据传递的方法，简单列举    发散性问题  职业规划 怎么制定技术方案，从哪几个方面考虑  ]]></description>
+    <description><![CDATA[vue 相关  mixin 相关场景以及利弊，拥有多个属性时的执行顺序， v-model 原理，在下拉选择器组件中是怎么实现的 filter 怎么实现，使用场景 插槽的实现原理，如何传值 v-for 中 key 的作用，延伸到 diff 实现，不同位置的比较 vnode 概念 v-if 控制 dom 显隐时， vdom 是如何处理的 watch 监听是的 deep: true 实现原理 nextTick 原理 computed 和 watch 的区别 Vue.use 和 Vue.install Vue 中手动 extend data 中的属性是定义在 MVVM 中的哪个环节  css 相关  回流和重绘的概念，绝对定位是否会导致回流 flex: 1 的分别代表什么属性以及作用 伪元素和伪类的区别，分别有哪些 visibility: hidden 和 opacity 是否触发点击事件  js 相关  let/const/var 区别，用 const 声明对象时，是否可以改变对象的属性值，为什么 深度优先搜索和广度优先搜索 如何证明 js 对象里存在循环引用 类型判断的方法，typeof 对象的类属性 实例对象是否是 Function ，instanceof Function 结果 promise 执行顺序，事件循环 es5 模拟 class 的实现 localStorage 如何实现过期时间 手机号正则  工程化相关  介绍 webpack 常用的配置以及功能 webpack 多页面有多个入口时如何配置 source-map 分类，如何配置和调试 webpack 中怎么隔离 css 性能优化方案，代码/打包/资源加载方面 热更新原理  概念类问题  http/https 区别 介绍 options 请求的意义 MVVM/MVC 的区别，如何实现一个 MVVM 简述 XSS 和 CSRF 的概念，并列举几种安全防范策略  编程题  编写一个函数，大小写字母取反  const fn = (string) =&gt; { let ans = &#39;&#39; for (let v of string) { ans += v.]]></description>
 </item>
 <item>
     <title>算法之 BFS 与 DFS</title>

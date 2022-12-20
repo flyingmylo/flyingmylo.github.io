@@ -1,0 +1,22 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Git - 标签 - Mylo</title>
+        <link>http://flyingmylo.com/tags/git/</link>
+        <description>Git - 标签 - Mylo</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Tue, 20 Dec 2022 17:03:14 &#43;0800</lastBuildDate><atom:link href="http://flyingmylo.com/tags/git/" rel="self" type="application/rss+xml" /><item>
+    <title>git 文件夹瘦身</title>
+    <link>http://flyingmylo.com/posts/git-slim/</link>
+    <pubDate>Tue, 20 Dec 2022 17:03:14 &#43;0800</pubDate>
+    <author>xxxx</author>
+    <guid>http://flyingmylo.com/posts/git-slim/</guid>
+    <description><![CDATA[git 版本库提交过多，导致项目根目录下的 .git 文件夹体积巨大，原因可能不只是单纯的提交历史过多，根本原因是历史提交中包含有对大文件的引用，即使现在的项目中已经不存在这些文件了，但其引用关联依旧会被 git 保留下来。
+找到项目根目录下的 .idx 文件：.git/objects/pack/pack-************.idx
+踩坑方案 git filter-branch 识别出最大的三个文件 git verify-pack -v .git/objects/pack/pack-*********.idx | sort -k 3 -n | tail -3
+运行结果如下👇
+81f0aa7f9298ae04dbb3c48d8e371295dd81c513 blob 5680214 1376617 73325123 77e75e8630d3ae2338ee11b04f3b1ce5f1d80c2f blob 5698996 1376836 115744091 3e9a2ee73bea2c4bdfe7ef98c9d2f78353b8eedb blob 5698998 1376837 61415784 查询大文件 执行：
+git rev-list --objects --all | grep -f &lt;(git verify-pack -v .git/objects/pack/******.idx| sort -k 3 -n | cut -f 1 -d &quot; &quot; | tail -10)
+路径及文件名结果如下👇
+"]]></description>
+</item>
+</channel>
+</rss>
