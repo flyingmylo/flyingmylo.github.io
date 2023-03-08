@@ -145,14 +145,14 @@ git repack -A -d
 git gc --aggressive --prune=now
 git push --force
 </code></pre></div><p>依次执行完以上命令后，此时去检查远程仓库，结果令人诧异，居然&hellip;没有&hellip;生效&hellip;本地确实是清理掉了一部分空间，从 <code>1.2G</code> 瘦身到 <code>600M</code> 左右，但是推送后并没有作用，于是继续寻找其他方案，结果看到 <a href="https://stackoverflow.com/questions/2100907/how-to-remove-delete-a-large-file-from-commit-history-in-the-git-repository?answertab=modifieddesc&amp;newreg=adaec4ffc87445179ca5946bf95f0109#tab-top" target="_blank" rel="noopener noreffer">stackoverflow</a> 上有一个一摸一样的问题，按 <code>Date modified (newest first)</code> 排序之后，看到👇
-<figure><a class="lightgallery" href="/images/git-slim-1.png/" title="/images/git-slim-1.png/" data-thumbnail="/images/git-slim-1.png/" data-sub-html="<h2> </h2>">
+<figure><a class="lightgallery" href="/images/git-slim/git-slim-1.png/" title="/images/git-slim/git-slim-1.png/" data-thumbnail="/images/git-slim/git-slim-1.png/" data-sub-html="<h2> </h2>">
         <img
             class="lazyload"
             src="/svg/loading.min.svg"
-            data-src="/images/git-slim-1.png/"
-            data-srcset="/images/git-slim-1.png/, /images/git-slim-1.png/ 1.5x, /images/git-slim-1.png/ 2x"
+            data-src="/images/git-slim/git-slim-1.png/"
+            data-srcset="/images/git-slim/git-slim-1.png/, /images/git-slim/git-slim-1.png/ 1.5x, /images/git-slim/git-slim-1.png/ 2x"
             data-sizes="auto"
-            alt="/images/git-slim-1.png/" />
+            alt="/images/git-slim/git-slim-1.png/" />
     </a><figcaption class="image-caption"> </figcaption>
     </figure>
 也就是说 2022 了，<code>git filter-branch</code> 已经不好使了，推送到远程之后没有任何作用，方案一以失败告状。</p>
@@ -185,24 +185,24 @@ git push --all --force
 
 git push --tags --force
 </code></pre></div><p>废了一些功夫，效果一级棒👍
-<figure><a class="lightgallery" href="/images/git-slim-2.png/" title="/images/git-slim-2.png/" data-thumbnail="/images/git-slim-2.png/" data-sub-html="<h2>清理前</h2>">
+<figure><a class="lightgallery" href="/images/git-slim/git-slim-2.png/" title="/images/git-slim/git-slim-2.png/" data-thumbnail="/images/git-slim/git-slim-2.png/" data-sub-html="<h2>清理前</h2>">
         <img
             class="lazyload"
             src="/svg/loading.min.svg"
-            data-src="/images/git-slim-2.png/"
-            data-srcset="/images/git-slim-2.png/, /images/git-slim-2.png/ 1.5x, /images/git-slim-2.png/ 2x"
+            data-src="/images/git-slim/git-slim-2.png/"
+            data-srcset="/images/git-slim/git-slim-2.png/, /images/git-slim/git-slim-2.png/ 1.5x, /images/git-slim/git-slim-2.png/ 2x"
             data-sizes="auto"
-            alt="/images/git-slim-2.png/" />
+            alt="/images/git-slim/git-slim-2.png/" />
     </a><figcaption class="image-caption">清理前</figcaption>
     </figure>
-<figure><a class="lightgallery" href="/images/git-slim-3.png/" title="/images/git-slim-3.png/" data-thumbnail="/images/git-slim-3.png/" data-sub-html="<h2>清理后</h2>">
+<figure><a class="lightgallery" href="/images/git-slim/git-slim-3.png/" title="/images/git-slim/git-slim-3.png/" data-thumbnail="/images/git-slim/git-slim-3.png/" data-sub-html="<h2>清理后</h2>">
         <img
             class="lazyload"
             src="/svg/loading.min.svg"
-            data-src="/images/git-slim-3.png/"
-            data-srcset="/images/git-slim-3.png/, /images/git-slim-3.png/ 1.5x, /images/git-slim-3.png/ 2x"
+            data-src="/images/git-slim/git-slim-3.png/"
+            data-srcset="/images/git-slim/git-slim-3.png/, /images/git-slim/git-slim-3.png/ 1.5x, /images/git-slim/git-slim-3.png/ 2x"
             data-sizes="auto"
-            alt="/images/git-slim-3.png/" />
+            alt="/images/git-slim/git-slim-3.png/" />
     </a><figcaption class="image-caption">清理后</figcaption>
     </figure></p>
 <p>参考链接：</p>
@@ -236,7 +236,7 @@ git push --tags --force
 </article></div>
             </main><footer class="footer">
         <div class="footer-container"><div class="footer-line">由 <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.91.2">Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
-                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2019 - 2022</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">xxxx</a></span></div>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2019 - 2023</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">xxxx</a></span></div>
         </div>
     </footer></div>
 
