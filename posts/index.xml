@@ -21,7 +21,7 @@ c0b33abdf3af4f0a4ae82d6243954eeb344432d9 src/components/Emoji/emoji.png a08b3b0f
  注：需要依次执行该命令去删除这些大文件，可能会有很多 jpg/js.]]></description>
 </item>
 <item>
-    <title>2022 08 02 Hejimoshi</title>
+    <title>TEST</title>
     <link>http://flyingmylo.com/posts/hejimoshi/</link>
     <pubDate>Tue, 02 Aug 2022 08:14:31 &#43;0800</pubDate>
     <author>xxxx</author>
@@ -34,13 +34,14 @@ c0b33abdf3af4f0a4ae82d6243954eeb344432d9 src/components/Emoji/emoji.png a08b3b0f
     <pubDate>Mon, 18 Jul 2022 15:30:06 &#43;0800</pubDate>
     <author>xxxx</author>
     <guid>http://flyingmylo.com/posts/git-command/</guid>
-    <description><![CDATA[分支操作 新建本地分支并切换到新分支
-git checkout -b feat/dev 本地分支推送到远程
-git push origin feat/dev:feat/dev 设置跟踪
-git branch --set-upstream-to=origin/dev dev 删除本地分支
-git branch -d dev 如果一个分支还没有被推送或合并，强制删除使用 -D
-git branch -D dev 删除远程分支
-git push origin --delete &lt;branch&gt; 或 git push origin :&lt;branch&gt; ]]></description>
+    <description><![CDATA[新建本地分支并切换到新分支
+git checkout -b feat/abc 本地分支推送到远程（x）
+git push origin feat/abc:feat/abc 设置跟踪（y）
+git branch --set-upstream-to=origin/feat/abc feat/abc 举例：如果想要把新建的 abc 本地分支推送到远程并建立跟踪，需要使用以上 x 和 y 两条命令，也可以使用以下一条命令：
+git push -u origin feat/abc 删除本地分支
+git branch -d abc 如果一个分支还没有被推送或合并，强制删除使用 -D
+git branch -D abc 删除远程分支
+git push origin --delete abc 或 git push origin :abc ]]></description>
 </item>
 <item>
     <title>面经（2022春）</title>
@@ -56,9 +57,12 @@ git push origin --delete &lt;branch&gt; 或 git push origin :&lt;branch&gt; ]]><
     <pubDate>Thu, 07 Jul 2022 21:27:33 &#43;0800</pubDate>
     <author>xxxx</author>
     <guid>http://flyingmylo.com/posts/dfs-bfs/</guid>
-    <description><![CDATA[深度优先搜索 DFS 深度优先搜索（Depth-First-Search），是一种用来遍历或者搜索树或图这种数据结构的算法，以树为例，其搜索过程会从根节点出发，尽可能深地遍历每个子节点，而且每个节点只能访问一次。
-深度优先搜索是一个不断回溯的过程，以二叉树的先序遍历为例：
-const preorderTraversal = function (root) { const ans = [] const dfs = (node, ans) =&gt; { if (node === null) return ans.push(node.val) dfs(node.left, ans) dfs(node.right, ans) } dfs(root, ans) return ans } const obj = { x: 1, a: 1, b: 2, c: 3, d: { e: 4, f: 5, }, } const isObject = (obj) =&gt; { return obj &amp;&amp; Object.prototype.toString.call(obj) === &#34;[object Object]&#34; } // 深度优先搜索获取对象的所有键 function dfs(obj, keys = []) { Object.]]></description>
+    <description><![CDATA[深度优先搜索 DFS 深度优先搜索（Depth-First-Search）和广度优先搜索（Breadth-First-Search）都是一种用来遍历或者搜索树或图这种数据结构的算法。以树为例，深度优先搜索的过程会从根节点出发，尽可能深地遍历每个子节点，而且每个节点只能访问一次，是一个不断回溯的过程。
+实现方法大致如下：
+ 首先将根节点放入栈中 从栈中取出第一个节点，并检验它是否为目标  如果找到目标，则结束搜索并返回结果 否则将它某一个尚未检验过的直接子节点放入栈中   重复步骤 2 如果不存在未检测过的直接子节点  将上一级节点放入栈中 重复步骤 2   重复步骤 4 若栈为空，表示整张图都已检查过并且没有要查找的目标，结束搜索  另外需要我们了解的一种数据结构：栈。
+我们可以把盏比喻成一包手帕纸，每张纸巾都是按序一张一张放进去的，使用的时候是一张一张从最上边开始拿出来的。所以栈是一种后进先出（Last In First Out, LIFO）的数据结构。
+示例：通过 DFS 实现复制对象的复制
+const copyDFS = function(obj) { if (obj === null || typeof obj !== &#34;object&#34;) { return obj; } const copyObj = Array.isArray(obj) ? [] : {}; for (const key in obj) { copyObj[key] = copyDFS(obj[key]); } return copyObj; } 示例：获取对象的所有键]]></description>
 </item>
 <item>
     <title>原型</title>
@@ -69,7 +73,7 @@ const preorderTraversal = function (root) { const ans = [] const dfs = (node, an
     <description><![CDATA[function SuperType() { this.property = true; } SuperType.prototype.getSuperValue = function() { return this.property; } function SubType() { this.subproperty = false; } // 修改 SubType 的原型，重新指向 SuperType SubType.prototype = new SuperType(); SubType.prototype.getSubValue = function() { return this.subproperty; } let instance = new SubType(); console.log(instance.getSuperValue()) // true console.log(instance.getSubValue()) // false  原型链" 原型链]]></description>
 </item>
 <item>
-    <title>「译」深入了解现代网络浏览器（1/4）</title>
+    <title>深入了解现代网络浏览器（1/4）【译】</title>
     <link>http://flyingmylo.com/posts/inside-look-at-modern-web-browser-1/</link>
     <pubDate>Wed, 18 May 2022 23:40:32 &#43;0800</pubDate>
     <author>xxxx</author>
