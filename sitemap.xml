@@ -2,11 +2,13 @@
     xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
     xmlns:xhtml="http://www.w3.org/1999/xhtml"
     ><url>
+            <loc>http://flyingmylo.com/</loc><lastmod>2023-03-28T20:54:28&#43;08:00</lastmod></url><url>
+            <loc>http://flyingmylo.com/tags/nginx/</loc><lastmod>2023-03-28T20:54:28&#43;08:00</lastmod></url><url>
+            <loc>http://flyingmylo.com/posts/</loc><lastmod>2023-03-28T20:54:28&#43;08:00</lastmod></url><url>
+            <loc>http://flyingmylo.com/tags/</loc><lastmod>2023-03-28T20:54:28&#43;08:00</lastmod></url><url>
+            <loc>http://flyingmylo.com/posts/nginx-conf/</loc><lastmod>2023-03-28T20:54:28&#43;08:00</lastmod></url><url>
             <loc>http://flyingmylo.com/tags/git/</loc><lastmod>2022-12-20T17:03:14&#43;08:00</lastmod></url><url>
             <loc>http://flyingmylo.com/posts/git-slim/</loc><lastmod>2022-12-20T17:03:14&#43;08:00</lastmod></url><url>
-            <loc>http://flyingmylo.com/</loc><lastmod>2022-12-20T17:03:14&#43;08:00</lastmod></url><url>
-            <loc>http://flyingmylo.com/posts/</loc><lastmod>2022-12-20T17:03:14&#43;08:00</lastmod></url><url>
-            <loc>http://flyingmylo.com/tags/</loc><lastmod>2022-12-20T17:03:14&#43;08:00</lastmod></url><url>
             <loc>http://flyingmylo.com/posts/hejimoshi/</loc><lastmod>2022-08-02T08:14:31&#43;08:00</lastmod></url><url>
             <loc>http://flyingmylo.com/posts/git-command/</loc><lastmod>2022-07-18T15:30:06&#43;08:00</lastmod></url><url>
             <loc>http://flyingmylo.com/tags/notes/</loc><lastmod>2022-07-13T21:27:03&#43;08:00</lastmod></url><url>

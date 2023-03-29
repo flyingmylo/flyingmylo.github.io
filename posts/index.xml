@@ -3,7 +3,21 @@
         <title>所有文章 - Mylo</title>
         <link>http://flyingmylo.com/posts/</link>
         <description>所有文章 | Mylo</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Tue, 20 Dec 2022 17:03:14 &#43;0800</lastBuildDate><atom:link href="http://flyingmylo.com/posts/" rel="self" type="application/rss+xml" /><item>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Tue, 28 Mar 2023 20:54:28 &#43;0800</lastBuildDate><atom:link href="http://flyingmylo.com/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>静态资源服务器配置 nginx 上手</title>
+    <link>http://flyingmylo.com/posts/nginx-conf/</link>
+    <pubDate>Tue, 28 Mar 2023 20:54:28 &#43;0800</pubDate>
+    <author>xxxx</author>
+    <guid>http://flyingmylo.com/posts/nginx-conf/</guid>
+    <description><![CDATA[上传静态资源 首先把本地的一个 index.html 文件上传至服务器，然后发布进行访问。
+首先进入到 root 目录下新建 www 文件夹
+cd /root &amp;&amp; mkdir www 然后在本地执行以下命令，将 index.html 文件上传至 /root/www 目录下：
+// 上传本地文件 scp index.html root@123.249.15.191:/root/www 其他文件传输操作：
+ 上传本地目录到服务器：scp -r dist root@123.249.15.191:/root/www 从服务器下载文件：scp root@123.249.15.191:/root/www/index.html 从服务器下载目录：scp -r root@123.249.15.191:/root/www /var/www  安装 nginx 执行命令以检查 yum 源中是否存在 nginx 包：
+yum list nginx 已安装的示例图" 已安装的示例图  使用 yum 安装 nginx：
+yum install -y nginx 出现 Complete! 提示即安装成功： 已安装的示例图" 已安装的示例图  此时我们可以通过浏览器访问服务器地址，会看到 nginx 默认页面，如下： nginx 默认页面" nginx 默认页面]]></description>
+</item>
+<item>
     <title>git 文件夹瘦身</title>
     <link>http://flyingmylo.com/posts/git-slim/</link>
     <pubDate>Tue, 20 Dec 2022 17:03:14 &#43;0800</pubDate>
