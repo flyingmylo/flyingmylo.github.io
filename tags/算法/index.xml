@@ -4,7 +4,7 @@
         <link>http://flyingmylo.com/tags/%E7%AE%97%E6%B3%95/</link>
         <description>算法 - 标签 - Mylo</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Thu, 07 Jul 2022 21:27:33 &#43;0800</lastBuildDate><atom:link href="http://flyingmylo.com/tags/%E7%AE%97%E6%B3%95/" rel="self" type="application/rss+xml" /><item>
-    <title>算法之 BFS 与 DFS</title>
+    <title>算法之深度优先搜索与广度优先搜索</title>
     <link>http://flyingmylo.com/posts/dfs-bfs/</link>
     <pubDate>Thu, 07 Jul 2022 21:27:33 &#43;0800</pubDate>
     <author>xxxx</author>

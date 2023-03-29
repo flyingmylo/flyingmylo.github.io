@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="robots" content="noodp" />
-        <title>算法之 BFS 与 DFS - Mylo</title><meta name="Description" content="This is my cool site"><meta property="og:title" content="算法之 BFS 与 DFS" />
+        <title>算法之深度优先搜索与广度优先搜索 - Mylo</title><meta name="Description" content="This is my cool site"><meta property="og:title" content="算法之深度优先搜索与广度优先搜索" />
 <meta property="og:description" content="深度优先搜索 DFS 深度优先搜索（Depth-First-Search）和广度优先搜索（Breadth-First-Search）都是一种用来遍历或者搜索树或图这种数据结构的算法。以树为例，深度优先搜索的过程会从根节点出发，尽可能深地遍历每个子节点，而且每个节点只能访问一次，是一个不断回溯的过程。
 实现方法大致如下：
  首先将根节点放入栈中 从栈中取出第一个节点，并检验它是否为目标  如果找到目标，则结束搜索并返回结果 否则将它某一个尚未检验过的直接子节点放入栈中   重复步骤 2 如果不存在未检测过的直接子节点  将上一级节点放入栈中 重复步骤 2   重复步骤 4 若栈为空，表示整张图都已检查过并且没有要查找的目标，结束搜索  另外需要我们了解的一种数据结构：栈。
@@ -17,7 +17,7 @@ const copyDFS = function(obj) { if (obj === null || typeof obj !== &#34;object&#
 <meta property="article:modified_time" content="2022-07-07T21:27:33+08:00" /><meta property="og:site_name" content="My cool site" />
 
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="算法之 BFS 与 DFS"/>
+<meta name="twitter:title" content="算法之深度优先搜索与广度优先搜索"/>
 <meta name="twitter:description" content="深度优先搜索 DFS 深度优先搜索（Depth-First-Search）和广度优先搜索（Breadth-First-Search）都是一种用来遍历或者搜索树或图这种数据结构的算法。以树为例，深度优先搜索的过程会从根节点出发，尽可能深地遍历每个子节点，而且每个节点只能访问一次，是一个不断回溯的过程。
 实现方法大致如下：
  首先将根节点放入栈中 从栈中取出第一个节点，并检验它是否为目标  如果找到目标，则结束搜索并返回结果 否则将它某一个尚未检验过的直接子节点放入栈中   重复步骤 2 如果不存在未检测过的直接子节点  将上一级节点放入栈中 重复步骤 2   重复步骤 4 若栈为空，表示整张图都已检查过并且没有要查找的目标，结束搜索  另外需要我们了解的一种数据结构：栈。
@@ -27,13 +27,13 @@ const copyDFS = function(obj) { if (obj === null || typeof obj !== &#34;object&#
 <meta name="application-name" content="Mylo&#39;s Blog">
 <meta name="apple-mobile-web-app-title" content="Mylo&#39;s Blog"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://flyingmylo.com/posts/dfs-bfs/" /><link rel="prev" href="http://flyingmylo.com/posts/prototype/" /><link rel="next" href="http://flyingmylo.com/posts/interview/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://flyingmylo.com/posts/dfs-bfs/" /><link rel="prev" href="http://flyingmylo.com/posts/inside-look-at-modern-web-browser-1/" /><link rel="next" href="http://flyingmylo.com/posts/interview/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
         <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
         <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
     {
         "@context": "http://schema.org",
         "@type": "BlogPosting",
-        "headline": "算法之 BFS 与 DFS",
+        "headline": "算法之深度优先搜索与广度优先搜索",
         "inLanguage": "zh-CN",
         "mainEntityOfPage": {
             "@type": "WebPage",
@@ -111,7 +111,7 @@ const copyDFS = function(obj) { if (obj === null || typeof obj !== &#34;object&#
                 <div class="container"><div class="toc" id="toc-auto">
             <h2 class="toc-title">目录</h2>
             <div class="toc-content" id="toc-content-auto"></div>
-        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">算法之 BFS 与 DFS</h1><div class="post-meta">
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">算法之深度优先搜索与广度优先搜索</h1><div class="post-meta">
             <div class="post-meta-line"></div>
             <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-07-07">2022-07-07</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 248 字&nbsp;
                 <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 2 分钟&nbsp;</div>
@@ -273,8 +273,8 @@ const copyDFS = function(obj) { if (obj === null || typeof obj !== &#34;object&#
         </section>
     </div>
 
-    <div class="post-nav"><a href="/posts/prototype/" class="prev" rel="prev" title="原型"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>原型</a>
-            <a href="/posts/interview/" class="next" rel="next" title="面经（2022春）">面经（2022春）<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+    <div class="post-nav"><a href="/posts/inside-look-at-modern-web-browser-1/" class="prev" rel="prev" title="深入了解现代网络浏览器（1/4）【译】"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>深入了解现代网络浏览器（1/4）【译】</a>
+            <a href="/posts/interview/" class="next" rel="next" title="面经记录">面经记录<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
 </div>
 <div id="comments"><div id="utterances" class="comment"></div><noscript>
                 Please enable JavaScript to view the comments powered by <a href="https://utteranc.es/">Utterances</a>.

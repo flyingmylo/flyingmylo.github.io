@@ -1,8 +1,8 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
-        <title>Git - 标签 - Mylo</title>
+        <title>git - 标签 - Mylo</title>
         <link>http://flyingmylo.com/tags/git/</link>
-        <description>Git - 标签 - Mylo</description>
+        <description>git - 标签 - Mylo</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Tue, 20 Dec 2022 17:03:14 &#43;0800</lastBuildDate><atom:link href="http://flyingmylo.com/tags/git/" rel="self" type="application/rss+xml" /><item>
     <title>git 文件夹瘦身</title>
     <link>http://flyingmylo.com/posts/git-slim/</link>
@@ -19,6 +19,21 @@
 c0b33abdf3af4f0a4ae82d6243954eeb344432d9 src/components/Emoji/emoji.png a08b3b0f766d26729cbaf0b7e86212b0ca4a5569 dist/js/2a10361c.async.js 1d26f0da81c885c676badb026367a47183013fb5 dist/js/84ad94bf.async.js eb07071cdea7e019953a3a6778a4bb6e728ea13d dist/js/4922a65f.async.js 7ddf057a0e26f300137c84cf03dbe088a69da488 dist/js/62f9d99c.async.js 删除文件 将该文件从历史记录的所有 tree 中移除，执行：
  git filter-branch --index-filter 'git rm --cached --ignore-unmatch src/components/Emoji/emoji.png'
  注：需要依次执行该命令去删除这些大文件，可能会有很多 jpg/js.]]></description>
+</item>
+<item>
+    <title>Git 常用命令</title>
+    <link>http://flyingmylo.com/posts/git-command/</link>
+    <pubDate>Mon, 18 Jul 2022 15:30:06 &#43;0800</pubDate>
+    <author>xxxx</author>
+    <guid>http://flyingmylo.com/posts/git-command/</guid>
+    <description><![CDATA[新建本地分支并切换到新分支
+git checkout -b feat/abc 本地分支推送到远程（x）
+git push origin feat/abc:feat/abc 设置跟踪（y）
+git branch --set-upstream-to=origin/feat/abc feat/abc 举例：如果想要把新建的 abc 本地分支推送到远程并建立跟踪，需要使用以上 x 和 y 两条命令，也可以使用以下一条命令：
+git push -u origin feat/abc 删除本地分支
+git branch -d abc 如果一个分支还没有被推送或合并，强制删除使用 -D
+git branch -D abc 删除远程分支
+git push origin --delete abc 或 git push origin :abc ]]></description>
 </item>
 </channel>
 </rss>
