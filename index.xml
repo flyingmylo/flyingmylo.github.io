@@ -6,7 +6,7 @@
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Tue, 28 Mar 2023 20:54:28 &#43;0800</lastBuildDate>
             <atom:link href="http://flyingmylo.com/index.xml" rel="self" type="application/rss+xml" />
         <item>
-    <title>静态资源服务器配置 nginx 上手</title>
+    <title>使用 nginx 部署一个 hello world</title>
     <link>http://flyingmylo.com/posts/nginx-conf/</link>
     <pubDate>Tue, 28 Mar 2023 20:54:28 &#43;0800</pubDate>
     <author>xxxx</author>
