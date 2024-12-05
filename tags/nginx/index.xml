@@ -7,7 +7,7 @@
     <title>使用 nginx 部署一个 hello world</title>
     <link>http://flyingmylo.com/posts/nginx-conf/</link>
     <pubDate>Tue, 28 Mar 2023 20:54:28 &#43;0800</pubDate>
-    <author>xxxx</author>
+    <author>Mylo</author>
     <guid>http://flyingmylo.com/posts/nginx-conf/</guid>
     <description><![CDATA[上传静态资源 首先把本地的一个 index.html 文件上传至服务器，然后发布进行访问。
 首先进入到 root 目录下新建 www 文件夹

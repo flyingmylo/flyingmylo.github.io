@@ -7,7 +7,7 @@
     <title>清理 Git 文件夹过期引用</title>
     <link>http://flyingmylo.com/posts/git-slim/</link>
     <pubDate>Tue, 20 Dec 2022 17:03:14 &#43;0800</pubDate>
-    <author>xxxx</author>
+    <author>Mylo</author>
     <guid>http://flyingmylo.com/posts/git-slim/</guid>
     <description><![CDATA[Git 版本仓库提交过多，会导致项目根目录下的 .git 文件夹体积巨大，原因可能不只是单纯的提交历史过多，而是历史提交中包含有对大文件的引用，即使现在的项目中已经不存在这些文件了，但其引用关联依旧会被 git 保留下来。
 踩坑方案一 git filter-branch 命令可以改写历史中大量的提交，但是它有很多陷阱，而且官方文档中已经不推荐使用它来重写历史了，当然，这个坑是我踩过之后才知道的。
@@ -24,7 +24,7 @@ c0b33abdf3af4f0a4ae82d6243954eeb344432d9 src/components/Emoji/emoji.png a08b3b0f
     <title>Git 常用命令</title>
     <link>http://flyingmylo.com/posts/git-command/</link>
     <pubDate>Mon, 18 Jul 2022 15:30:06 &#43;0800</pubDate>
-    <author>xxxx</author>
+    <author>Mylo</author>
     <guid>http://flyingmylo.com/posts/git-command/</guid>
     <description><![CDATA[新建本地分支并切换到新分支
 git checkout -b feat/abc 本地分支推送到远程（x）
