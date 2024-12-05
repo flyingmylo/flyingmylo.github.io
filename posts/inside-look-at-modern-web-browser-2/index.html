@@ -128,7 +128,7 @@
         <li><a href="#第一步处理输入">第一步：处理输入</a></li>
         <li><a href="#第二步开始导航">第二步：开始导航</a></li>
         <li><a href="#第三步读取响应">第三步：读取响应</a></li>
-        <li><a href="#第四步寻找渲染器进程">第四步：寻找渲染器进程</a></li>
+        <li><a href="#第四步查找渲染器进程">第四步：查找渲染器进程</a></li>
       </ul>
     </li>
   </ul>
@@ -198,7 +198,7 @@
     </a><figcaption class="image-caption">图5：网络线程询问响应的数据是否是一个来自安全站点的 HTML</figcaption>
     </figure></p>
 <p>这也正是 <a href="https://safebrowsing.google.com/" target="_blank" rel="noopener noreffer">SafeBrowsing</a> 发生的时机。如果域名和响应数据看起来像个恶意的网站，这时网络线程会警惕性地显示一个提示页面，而且也会触发 <a href="https://www.chromium.org/Home/chromium-security/corb-for-developers/" target="_blank" rel="noopener noreffer">Cross Origin Read Blcoking(CORB)</a> 检测，以确保被攻击的垮站数据不会被传递给渲染进程。</p>
-<h3 id="第四步寻找渲染器进程">第四步：寻找渲染器进程</h3>
+<h3 id="第四步查找渲染器进程">第四步：查找渲染器进程</h3>
 <p>当所有的检测工作都已完成，并且网络线程也能够确信浏览器可以处理这个请求站点时，网络线程就会告诉 UI 线程数据已就绪，UI 线程就会寻找一个渲染器进程继续渲染这个网页。
 <figure><a class="lightgallery" href="/images/chrome/06.avif" title="/images/chrome/06.avif" data-thumbnail="/images/chrome/06.avif" data-sub-html="<h2>图6：网络线程告诉 UI 线程去寻找一个渲染器进程</h2>">
         <img
