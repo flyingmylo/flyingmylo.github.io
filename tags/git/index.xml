@@ -4,7 +4,7 @@
         <link>http://flyingmylo.com/tags/git/</link>
         <description>git - 标签 - Mylo</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Tue, 20 Dec 2022 17:03:14 &#43;0800</lastBuildDate><atom:link href="http://flyingmylo.com/tags/git/" rel="self" type="application/rss+xml" /><item>
-    <title>git 文件夹瘦身</title>
+    <title>清理 Git 文件夹过期引用</title>
     <link>http://flyingmylo.com/posts/git-slim/</link>
     <pubDate>Tue, 20 Dec 2022 17:03:14 &#43;0800</pubDate>
     <author>xxxx</author>
